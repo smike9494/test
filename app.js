@@ -222,7 +222,9 @@ app.use(categoryRoute);
 app.use(RBACRoute);
 app.use(indexRoute);
 
-app.listen(3001, function () {
+var port = process.env.PORT || 3001;
+
+app.listen( port, function () {
     console.log('Server has started.....');
   });
 
