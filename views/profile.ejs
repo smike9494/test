@@ -1,0 +1,83 @@
+
+<% include ./partials/dash %>
+<!-- The Modal -->
+
+<div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div id="photo_modal" class="modal-content">
+      <span class="close">&times;</span>
+      <h3>Upload Profile Picture</h3>
+      <p>*Please Use Proportional Dimensions i.e. 50x50 pixels</p>
+      <form action="/profile/user/<%= user.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+          <div class="input-file-container">  
+            <input name="profilePhoto" class="input-file" id="my-file" type="file">
+            <label tabindex="0" for="my-file" class="input-file-trigger">Select a file...</label>
+          </div>
+          <p class="file-return"></p>
+          <button class="bttn-bordered bttn-sm bttn-primary">Submit</button>
+        </form>
+        <hr>
+
+    </div>
+</div>
+
+     <div class="dashboard-container">   
+       <div class="grid">
+         <div class="avatar">
+           <div class="avatar-img-profile">
+             <div class="avatar-container">
+                <img id="myBtn" src="/<%= user.profilePhoto %>" alt="">
+                <!-- <% //if(user) {%> -->
+                <div>
+                  <h3><%= user.name %></h3>
+                  <span>@<%= user.username %></span>
+                  <% if(user.permission !== 'user') { %>
+                  <h5><%= user.permission %></h5>
+                  <% } %>
+                </div>
+               
+             </div>
+           </div>
+           <div class="user-info">
+             <ol>
+               <li>
+                  <p>Username: <span><%= user.username %></span></p>
+               </li>
+               <li>
+                  <p>Date Of Birth:  <span><%= user.username %></span></p>
+               </li>
+               <li>
+                  <p>Location:  <span><%= user._id %></span></p>
+               </li>
+               <li>
+                  <p>Change Password:  <span><a href="/reset">Reset Password</a></span></p>
+               </li>
+             </ol>
+           </div>
+           <!-- <%// } %> -->
+         </div>
+         <div id="webActivity">
+            <div class="user-info">
+              <ol>
+                <% if(currentUser.permission === 'SuperAdmin' || currentUser.permission === 'Admin') { %>
+                <li><a href="/access/control/post/new">Post New Article</a></li>
+                <li><a href="/dashboard">Dashboard</a></li>
+                <li><a href="/access/control">User Permissions</a></li>
+                <li><a href="/access/control/upload">Upload Files</a></li>
+                <% } else if (currentUser.permission === 'Author') { %>
+                <li><a href="/access/control/post/new">Post New Article</a></li>
+                <li><a href="/dashboard">Dashboard</a></li> 
+                <li><a href="/access/control/upload">Upload Files</a></li>
+                <% } %>
+              </ol>
+            </div>
+         </div>
+
+       </div>
+    </div>
+</body>
+
+
+
+<% include ./partials/footer %>

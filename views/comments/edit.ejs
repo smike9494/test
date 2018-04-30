@@ -1,0 +1,15 @@
+<div>
+ <form action="/article/<%= mainArticles_id %>/comments/<%= comment._id %>?_method=PUT" method="POST" >
+    <!--<div class="ui form ui header">-->
+    <!--    <label for="Author">Author</label>-->
+    <!--     <input class="form-control" type="text" name="comment[author]" placeholder="Name">-->
+    <!-- </div>-->
+     <div class="ui form ui header">
+         <div class="field">
+             <label for="comment">Comment</label>
+             <input name="comment[text]"placeholder='Comment' value="<%= comment.text %>" ></input>
+         </div>
+     </div>
+     <button type="submit" class="ui blue button">Submit</button>
+ </form>
+</div>

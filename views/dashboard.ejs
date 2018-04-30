@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Responsive Side Menu</title>
+  <link rel="stylesheet" href="stylesheets/main2.css">
+</head>
+<body>
+    <div class="wrapper">
+            <nav class="dash-navbar">
+                <div id="callToAction">
+                    <a id="toBack" href="/"><i class="far fa-arrow-alt-circle-left"></i> Back to <span class="ctabtn">VIPODAZA</span></a>
+                </div>
+                  <!-- <span class="open-slide">
+                    <a href="#" onclick="openSlideMenu()">
+                      <svg width="30" height="30">
+                          <path d="M0,5 30,5" stroke="#000" stroke-width="5"/>
+                          <path d="M0,14 30,14" stroke="#000" stroke-width="5"/>
+                          <path d="M0,23 30,23" stroke="#000" stroke-width="5"/>
+                      </svg>
+                    </a>
+                  </span> -->
+            </nav>
+    </div>
+ 
+    <div class="container">
+      <div class="grid">
+        <div id="dash-side-menu" class="dash-side-nav">
+            <!-- <a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a> -->
+          <a href="#"><i class="fas fa-thumbtack"></i> Posts</a>
+          <a href="#"><i class="fas fa-camera"></i> Media</a>
+          <a href="#"><i class="far fa-file"></i> Pages</a>
+          <a href="#"><i class="far fa-comment"></i> Comments</a>
+          <a href="#"><i class="far fa-user"></i> Users</a>
+          <a href="#"><i class="fas fa-cog"></i> Settings</a>
+        </div>
+
+        <div class="siteOverview">
+          
+            <span style="display:flex; justify-content:center; margin-top:60px;">10034 Users</span> 
+          
+        </div>
+
+      </div>
+    </div>
+
+
+  <script>
+    function openSlideMenu(){
+      document.getElementById('dash-side-menu').style.width = '250px';
+      document.getElementById('main').style.marginLeft = '250px';
+    }
+
+    function closeSlideMenu(){
+      document.getElementById('dash-side-menu').style.width = '0';
+      document.getElementById('main').style.marginLeft = '0';
+    }
+  </script>
+  <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+</body>
+</html>

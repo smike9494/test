@@ -1,0 +1,25 @@
+  <% include ./partials/header %>
+<div class="row-margin">
+  <div class="container">
+      <div class="section-one">
+        <div class="ul">
+          <ul>
+            <% mainArticles.forEach(function(mainArticles){ %>
+            <li>
+              <div class="img-container">
+                  <a href="/article/<%= mainArticles.slug %>"><img src="<%= mainArticles.image %>" alt=""></a>
+                   <div class="title-container">
+                    <a href="/article/<%= mainArticles.categorySlug%>/<%= mainArticles.slug %>"><%=mainArticles.title %></a>
+                    <span class='right-column-tag'>
+                        <%= moment(mainArticles.date).fromNow(true) %> ago
+                    </span>
+                  </div>
+              </div>
+                <% }); %>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% include ./partials/footer %>

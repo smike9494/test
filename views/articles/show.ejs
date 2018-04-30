@@ -1,0 +1,176 @@
+<% include ../partials/showpageHeader %>
+<title><%= mainArticles.title %></title>
+
+<div id="myModalMenuBurger" class="content">
+        <span class="Desktopclose">&times;</span>
+        <div class="container">
+          <ul >
+            <li><a href="/">Home</a></li>
+            <li><a href="/us-news">U.S. News</a></li>
+            <li><a href="/worldwide">Worldwide</a></li>
+            <li><a href="/economics">Economics</a></li>
+            <li><a href="/politics">Politics</a></li>
+            <li><a href="/business">Business</a></li>
+            <li><a href="/markets">Markets</a></li>
+            <li><a href="/tech">Tech</a></li>
+            <li><a href="/travel">Travel</a></li>
+            <li><a href="/lifestyle">Lifestyle</a></li>
+            <li><a href="/sports">Sports</a></li>
+            <li><a href="/video">Video</a></li>
+          </ul>
+        </div>
+    </div>
+
+  <div id="myModalMobileMenuBurger" class=" modal">
+    <!-- Modal content -->
+    <div class="content">
+        <span class="Mobileclose">&times;</span>
+        <ul >
+          <li><a href="/">Home</a></li>
+          <li><a href="/us-news">U.S. News</a></li>
+          <li><a href="/worldwide">Worldwide</a></li>
+          <li><a href="/economics">Economics</a></li>
+          <li><a href="/politics">Politics</a></li>
+          <li><a href="/business">Business</a></li>
+          <li><a href="/markets">Markets</a></li>
+          <li><a href="/tech">Tech</a></li>
+          <li><a href="/travel">Travel</a></li>
+          <li><a href="/lifestyle">Lifestyle</a></li>
+          <li><a href="/sports">Sports</a></li>
+          <li><a href="/video">Video</a></li>
+        </ul>
+    </div>
+  </div>
+
+  <% if(currentUser && mainArticles.author.id.equals(currentUser._id) || currentUser && currentUser.permission === 'SuperAdmin' || currentUser && currentUser.permission === 'Admin') { %>
+    <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="delete-content">
+            <span class="close">&times;</span>
+            <form action="/article/<%= mainArticles.categorySlug %>/<%= mainArticles.slug %>?_method=DELETE" method="POST">
+            <h3>Are You Sure You Want To Delete This Article?</h3>
+            <button class="bttn-material-flat bttn-md bttn-danger">Delete</button>
+            <button class="bttn-material-flat bttn-md bttn-primary"> <a style="color:#fff;" href="/article/<%= mainArticles.categorySlug %>/<%= mainArticles.slug %>">Cancel</a></button>
+            </form>
+        </div>
+    </div>
+          <div>
+            <ul class="absolute-right90px">
+                <span style="color:#2574A9">Author</span>
+                <li><a href="/article/<%= mainArticles.categorySlug %>/<%= mainArticles.slug %>/edit"><i class="fas fa-edit"></i></a></li>
+                <li><a href="#"><i class="fas fa-times"></i></a></li>
+                <li><a href="#"><i class="fas fa-check"></i></a></li>
+                <li><a href="/post/new"><i class="fas fa-plus"></i></a></li>
+                <li><a id="myBtn" href="#"><i class="fas fa-trash"></i></a></li>
+             </ul>
+          </div>
+          
+  <% } %> 
+
+ 
+  <!-- <div class="scroll-indicator">
+    <div class="progress-container">
+        <div class="progress-bar" id="myBar"></div>
+    </div> 
+  </div> -->
+
+  
+  <ul class="absolute-left90px">
+    <li><a href="https://www.facebook.com/sharer/sharer.php?u=http://www.vipodaza.com/article/<%= mainArticles.categorySlug %>/<%= mainArticles.slug %>" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><i class="fab fa-facebook-f"></i></a></li>
+    <li><a href="https://twitter.com/intent/tweet?text=<%= mainArticles.title%>&url=http://www.vipodaza.com/article/<%= mainArticles.categorySlug %>/<%= mainArticles.slug %>"  onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><i class="fab fa-twitter"></i></a></li>
+    <li><a href="https://plus.google.com/share?url=http://www.vipodaza.com/article/<%= mainArticles.categorySlug %>/<%= mainArticles.slug %>"  onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><i class="fab fa-google"></i></a></li>
+    <li><a href="http://www.linkedin.com/shareArticle?mini=true&url=http://www.vipodaza.com/article/<%= mainArticles.categorySlug %>/<%= mainArticles.slug %>" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><i id="linkedin-colorLI" class="fab fa-linkedin-in"></i></a></li> 
+    <li><a href="http://www.reddit.com/submit?url=http://www.vipodaza.com/<%= mainArticles.categorySlug %>/<%= mainArticles.slug %>&amp;title=<%= mainArticles.title %>&amp;text=<%= mainArticles.title %>" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><i id="reddit-colorRD" class="fab fa-reddit-alien"></i></a></li>
+    <li><a href="mailto:?subject=<%= mainArticles.title %>&body=http://www.vipodaza.com/article/<%= mainArticles.categorySlug %>/<%= mainArticles.slug %>"><i class="fas fa-envelope"></i></a></li>
+    <li><p id="absolute-leftShareText">Share</p></li>
+ </ul>
+
+  <div class="container">
+    <div class="grid-show">
+            <div class="show-story">
+            <div class="spans">
+              <span class="author-icons-category"> <a class="category-link" href="/<%= mainArticles.categorySlug %>"><%= mainArticles.category %></a></span><% if(mainArticles.updatedAt > mainArticles.createdAt && mainArticles.updated === true) { %> <span class="updated-icon"> Updated <%= moment(mainArticles.updatedAt).format('LLL') %></span><% } %></div>
+              <h1 class="showpage-title"><%= mainArticles.title %><hr class="hr"></h1>
+       <div class="avatar-img">
+            <div class="avatar-container">
+               <img id="author-photo" src="/<%= mainArticles.author.photo %> " alt="">
+            </div>
+         <span><a href="/author/<%= mainArticles.author.slugName %>/<%= mainArticles.author.userRef %>" class="author-link"><h3><%= mainArticles.author.name %></h3></a></span>
+       </div> 
+              <span class="clock"><img class="showpage-time-stamp" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMTIgMmM1LjUxNCAwIDEwIDQuNDg2IDEwIDEwcy00LjQ4NiAxMC0xMCAxMC0xMC00LjQ4Ni0xMC0xMCA0LjQ4Ni0xMCAxMC0xMHptMC0yYy02LjYyNyAwLTEyIDUuMzczLTEyIDEyczUuMzczIDEyIDEyIDEyIDEyLTUuMzczIDEyLTEyLTUuMzczLTEyLTEyLTEyem01Ljg0OCAxMi40NTljLjIwMi4wMzguMjAyLjMzMy4wMDEuMzcyLTEuOTA3LjM2MS02LjA0NSAxLjExMS02LjU0NyAxLjExMS0uNzE5IDAtMS4zMDEtLjU4Mi0xLjMwMS0xLjMwMSAwLS41MTIuNzctNS40NDcgMS4xMjUtNy40NDUuMDM0LS4xOTIuMzEyLS4xODEuMzQzLjAxNGwuOTg1IDYuMjM4IDUuMzk0IDEuMDExeiIvPjwvc3ZnPg=="> Posted On: <%= moment(mainArticles.date).format('LLL') + ' ' + moment.tz([2012, 5], 'America/Los_Angeles').format('z');%> <span class="displayFlexSocialBar">
+                  <ul>
+                    <li><a class="facebookColor" href="https://www.facebook.com/sharer/sharer.php?u=http://www.vipodaza.com/article/<%= mainArticles.categorySlug %>/<%= mainArticles.slug %>" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a class="twitterColor" href="https://twitter.com/intent/tweet?text=<%= mainArticles.title%>&url=http://www.vipodaza.com/article/<%= mainArticles.categorySlug %>/<%= mainArticles.slug %>"  onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><i id="twitter-colorTW" class="fab fa-twitter"></i></a></li>
+                    <li><a class="googleColor" href="https://plus.google.com/share?url=http://www.vipodaza.com/article/<%= mainArticles.categorySlug %>/<%= mainArticles.slug %>"  onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><i id="google-colorGG" class="fab fa-google"></i></a></li>
+                    <li><a class="linkedInColor" href="http://www.linkedin.com/shareArticle?mini=true&url=http://www.vipodaza.com/article/<%= mainArticles.categorySlug %>/<%= mainArticles.slug %>" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><i id="linkedin-colorLI" class="fab fa-linkedin-in"></i></a></li> 
+                    <li><a class="redditColor" href="http://www.reddit.com/submit?url=http://www.vipodaza.com/<%= mainArticles.categorySlug %>/<%= mainArticles.slug %>&amp;title=<%= mainArticles.title %>&amp;text=<%= mainArticles.title %>" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;"><i id="reddit-colorRD" class="fab fa-reddit-alien"></i></a></li>
+                    <li><a class="emailColor" href="mailto:?subject=<%= mainArticles.title %>&body=http://www.vipodaza.com/article/<%= mainArticles.categorySlug %>/<%= mainArticles.slug %>"><i class="fas fa-envelope"></i></a></li>  
+                   </ul> 
+                </span> <span class="view-count"><i class="fas fa-eye"></i> <%= mainArticles.viewCount.length %></span> </span>
+                
+<!--                 
+              <div class="bulletins">
+                    <ul>
+                       <li>
+                           Students, parents, educators, and the NRA gathered under one roof on Wednesday night to talk about how best to move forward, one week after a mass shooting at a Parkland, Florida, high school claimed 17 lives.
+                       </li>
+                       <li>
+                           The town-hall style event hosted by CNN's Jake Tapper follows days of heated discourse over gun rights in America.
+                       </li>
+                       <li>
+                           President Donald Trump held a listening session with school-shooting survivors earlier Wednesday, but declined an invite to attend the town hall, CNN said, though he has indicated his willingness to explore new gun-reform options.
+                       </li>
+                        
+                    </ul>
+                 </div>
+        -->
+      
+                <div class="page-content">
+                  <%- mainArticles.content %>
+                </div>
+                        <div class="social">
+                          <h4 class="comments_Indicator">Leave a Comment</h4>
+                           <!-- <span class="post-icons-comments"><i class="far fa-comment"></i><%= mainArticles.comments.length %></span> -->
+                              <div id="comment_SectionForm">
+                                  <form action="/article/<%= mainArticles._id %>/comments" method="POST" >
+                                      <div class="ui form ui header">
+                                          <div class="field">
+                                              <label for="comment"></label>
+                                              <textarea id="comment_textArea" type="text" rows="4" cols="50" name="comment[text]"placeholder='Comment' ></textarea>
+                                          </div>
+                                      </div>
+                                      <button id="comment_submitFontSize" class="bttn-material-flat bttn-md bttn-primary">Submit</button>
+                                  </form>
+                              </div>
+
+                     
+                        <div class="comments">
+                         <% mainArticles.comments.forEach(function(comment){ %>
+                            <div class="commentBox_User">
+                              <div class="display_grid">
+                                  <div class="user_info">
+                                    <h5 id="comment_AuthorName">@<%= comment.author.username %></h5>
+                                    <span><h5 id="comment_AuthorName"><%= moment(comment.createdAt).format('LLL') %></h5></span>
+                                  </div>
+                                <!-- <img src="<%= comment.author.profilePhoto %>" alt=""> -->
+                                <div class="comment_text">
+                                    <p><%= comment.text%></p>  
+                                </div>
+                              </div>  
+                                
+                            <% if(currentUser && comment.author.id.equals(currentUser._id) || currentUser && currentUser.permission === 'SuperAdmin' || currentUser && currentUser.permission === 'Admin' || currentUser && currentUser.permission === 'Moderator') { %>
+                                <form id="update_CommentForm" action="/article/<%=mainArticles._id%>/comments/<%= comment._id %>?_method=DELETE" method='POST'>
+                                    <button id="comment_submitFontSize" class="bttn-material-flat bttn-md bttn-danger"><i class="fas fa-trash"></i></button>
+                                    <a  id="comment_submitFontSize" class="bttn-material-flat bttn-md bttn-primary" href='/article/<%=mainArticles._id%>/comments/<%= comment._id %>/edit'><i class="fas fa-edit"></i></a>
+                                </form>
+                            <% } %>       
+                            </div>
+                        <% }) %>
+                    </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+</div> 
+
+<% include ../partials/footer %>

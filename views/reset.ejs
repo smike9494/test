@@ -1,0 +1,22 @@
+
+<% include ./partials/errorPagePartial %>
+<div class="container">
+   <div class="maxwidth_margin">
+    <h1 class="reset-heading">Forgotten or need to set your password?
+    <p class="reset_subtext">We will email you a link to reset it.</p>
+    </h1>
+      <div class="form">
+        <form action="/reset" method="POST">
+            <label class="reset_password_form_email" for="email">Email address</label>
+            <input id="registerPage_button" class="reset_password_form_input" type="email" name="email" >
+        <div class="button_">
+          <button class="bttn-material-flat bttn-md bttn-primary registerPage_button">Reset Password</button>
+         </div>
+        </form>
+      </div>
+    </div>  
+</div>
+
+
+
+<% include ./partials/footer %>

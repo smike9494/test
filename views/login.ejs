@@ -1,0 +1,68 @@
+<% include ./partials/login %>
+
+<link rel="stylesheet" href="/stylesheets/main1.css">
+<link rel="stylesheet" href="/stylesheets/font/fonts/fonts.css">
+<link rel="stylesheet" href="/stylesheets/font/fonts.fonts.min.css">
+<link rel="stylesheet" href="/stylesheets/social/css/social-share-kit.css">
+<body class="loginbg">
+    <div class="loginBox">
+        <div class="logo-title">
+            <div class="title-container">
+                <a href="/"><h2>VIPODAZA</h2></a>
+            </div>
+         </div>
+        <!-- <h2 class="login">Sign In</h2> -->
+        <form action="/login" method="POST">
+            <p>Username</p>
+            <input type="text" name="username">
+            <p>Password</p>
+            <input type="password" name="password">
+            <button class="registerPage_button bttn-fill bttn-md">Login</button>
+            <a class="loginBtn btnMargin_10px" href="/reset">Forgot Password?</a> 
+            <a class="loginBtn btnMargin_10px" href="/register">Create Account</a>
+        </form>
+        <div class="displayFlexSocialBar">
+            <a id="facebook-colorFB" href=""><i class="fab fa-facebook-f"></i></a>
+            <a id="twitter-colorTW" href=""><i class="fab fa-twitter"></i></a>
+            <a id="google-colorGG" href=""><i class="fab fa-google"></i></a>
+         </div>
+     </div>
+</body>
+<!-- <div class="row-margin">
+  <div class="container">
+      <div class="form">
+            <form action='/login' method='POST'>
+                <div class="form">
+                    <label>Username</label>
+                    <input type='text' name='username' placeholder='username'>
+                </div>
+                <div class="form">
+                    <label>Password</label>
+                    <input type='password' name='password' placeholder='password'>
+                </div>
+                <button>Sign In</button>
+                <a href='/register'>Register</a>
+            </form>
+      </div>
+  </div>
+</div> -->
+<!-- <div class="container">
+    <div class="login-bg">
+        <div class="form">
+            <form class="login-form" action='/login' method='POST'>
+                <div class="form">
+                    <label>Username</label>
+                    <input type='text' name='username' placeholder='username'>
+                </div>
+                <div class="form">
+                    <label>Password</label>
+                    <input type='password' name='password' placeholder='password'>
+                </div>
+                <button class="login-knp">Sign In</button>
+                <a href='/register'>Register</a>
+            </form>
+        </div>
+    </div>
+</div> -->
+
+<% include ./partials/footer %>

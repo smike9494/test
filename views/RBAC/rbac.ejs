@@ -1,0 +1,18 @@
+<% include ../partials/dash %>
+
+<h1>HELLO RBAC</h1>
+
+<ul>
+    <% if(currentUser.permission === 'SuperAdmin') { %>
+    <li><a href="/access/control/superadmin">Add Super Admin</a></li>
+    <li><a href="/access/control/admin">Add Admin</a></li>
+    <li><a href="/access/control/moderator">Add Moderator/Writer</a></li>
+    <% } else if (currentUser.permission === 'Admin') { %>
+    <li><a href="/access/control/admin">Add Admin</a></li>
+    <li><a href="/access/control/moderator">Add Moderator/Writer</a></li>
+    <% } %>    
+</ul>
+
+
+
+<% include ../partials/footer %>

@@ -1,0 +1,66 @@
+<% include ../partials/postdash %>
+<body class="npbgc">
+    <div class="container npa-container">
+        <div class="grid-show">
+            <div class="npa">
+              <h2>Create A New Article</h2>
+              <!-- <form action="/article/:id" method="POST">
+                    <input type="text" name="blog[image]" placeholder="image">
+                    <input type="text" name="blog[title]" placeholder="title">
+                    <input type="text" name="blog[category]" placeholder="category">
+                    <input type="text" name="blog[priority]" placeholder="priority">
+                    <textarea name="blog[content]" rows="5">
+                    </textarea>
+                    <button>Submit</button>
+                </form> -->
+                     <!-- <h2 class="login">Sign In</h2> -->
+            <form action="/article/:id" method="POST">
+              <p>Title<span> *Title Of Article</span></p>
+              <input type="text" name="blog[title]"  maxlength="85">
+              <p>Sub-Title<span> *Alternative Title For Article</span></p>
+              <input type="text" name="blog[subtitle]">
+              <p>Category<span> *Category To Post Article Under</span></p>
+             <select name="blog[category]" id="">
+               <option value="Select Category">Select Category</option>
+               <option value="U.S. News">U.S. News</option>
+               <option value="Worldwide">Worldwide</option>
+               <option value="Economics">Economics</option>
+               <option value="Politics">Politics</option>
+               <option value="Business">Business</option>
+               <option value="Markets">Markets</option>
+               <option value="Tech">Tech</option>
+               <option value="Travel">Travel</option>
+               <option value="Lifestyle">Lifestyle</option>
+               <option value="Sports">Sports</option>
+               <option value="Video">Video</option>
+             </select>
+              <p>Priority<span> *Priority Of Article</span></p>
+              <select name="blog[priority]" id="">
+                <option value="">Select Priority</option>
+                <option value="Breaking News">Breaking News</option>
+                <option value="Top Headlines">Top Headlines</option>
+              </select>
+              <p>Slug<span> *Unique ID Of Article, What The URL Will Display *Preferably Title Or Sub-Title*</span></p>
+              <input type="text" name="blog[slug]">
+              <p>Images<span> *Images To Upload</span></p>
+              <input  type="text" name="blog[image]">
+              <p>Meta Description<span> *Description For Meta Tags</span></p>
+              <input  type="text" name="blog[metaDescription]">
+              <p>Content<span> *Content Of The Article</span></p>
+              <textarea class="textarea" name="blog[content]" id="" cols="30" rows="10"></textarea>
+              <p>Updated<span> *Let Viewer Know Post Has Been Updated</span></p>
+              <select name="blog[updated]" id="">
+                  <option value="Select Option">Select Option</option>
+                  <option value="True">true</option>
+                  <option value="False" selected>false</option>
+              </select>
+              <button type="submit" class="registerPage_button bttn-fill bttn-md">Submit</button>
+              <!-- <input type="submit" value="Submit Article">  -->
+          </form>
+          
+            </div>
+        </div>
+      </div>
+</body>
+
+<% include ../partials/footer %>

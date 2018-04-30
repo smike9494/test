@@ -1,0 +1,22 @@
+<% include ./partials/rbacHeader %>
+<title>Add New Moderator</title>
+<div class="container">
+   <div class="maxwidth_margin">
+    <h1 class="reset-heading">Create a new Moderator?
+    <p class="reset_subtext">Please enter the email address of the user you want to update.</p>
+    </h1>
+      <div class="form">
+        <form action="/access/control/moderator" method="POST">
+            <label class="reset_password_form_email" for="email">Email address</label>
+            <input id="registerPage_button" class="reset_password_form_input" type="email" name="emailModerator" >
+        <div class="button_">
+          <button class="bttn-material-flat bttn-md bttn-primary registerPage_button">Send Permissions</button>
+         </div>
+        </form>
+      </div>
+    </div>  
+</div>
+
+
+
+<% include ./partials/footer %>

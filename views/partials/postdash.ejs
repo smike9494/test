@@ -1,0 +1,39 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="/stylesheets/main1.css">
+<link rel="stylesheet" href="/stylesheets/media.css">
+<link rel="stylesheet" href="/stylesheets/font/fonts/fonts.css">
+<link rel="stylesheet" href="/stylesheets/font/fonts/fonts.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bttn.css/0.2.4/bttn.min.css">
+<link href='https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.7.6/css/froala_editor.min.css' rel='stylesheet' type='text/css' />
+<link href='https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.7.6/css/froala_style.min.css' rel='stylesheet' type='text/css' />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/codemirror.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/codemirror.min.css">
+
+<div class="message-container">
+        <% if (success && success.length > 0) { %>
+        <div class="success-message">
+            <%= success %>
+        </div>
+        <% } %> 
+        <% if(error && error.length > 0) { %>
+        <div class="error-message">
+            <%= error %>
+        </div>
+        <% } %> 
+        </div> 
+
+    <div class="dash-logo">
+        <div class="header-container">
+            <div class="dash-nav-wrapper">
+                <div id="callToAction">
+                    <a id="toBack" href="/profile/user/<%= currentUser.id %>"><i class="far fa-arrow-alt-circle-left"></i> Back to <span class="ctabtn">DASHBOARD</span></a>
+                </div>
+                <div id="callToAction1">
+                    <a id="toSignOut" href="/logout">Logout <i class="far fa-arrow-alt-circle-right"></i></a>
+                </div>
+            </div>
+          </div>
+      </div>

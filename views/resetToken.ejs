@@ -1,0 +1,24 @@
+
+<% include ./partials/errorPagePartial %>
+<div class="container">
+   <div class="maxwidth_margin">
+    <h1 class="reset-heading">Reset Your Password
+    <!-- <p class="reset_subtext">Please use special symbols.</p> -->
+    </h1>
+      <div class="form">
+        <form action="/reset/<%= token %>" method="POST">
+            
+            <label class="reset_password_form_email" for="password">New Password</label>
+            <input class="reset_password_form_input" type="password" name="password" value="" placeholder="New password" autofocus="autofocus" class="form-control"/>
+
+            <label class="reset_password_form_email" for="confirm">Confirm Password</label>
+            <input class="reset_password_form_input" type="password" name="confirm" value="" placeholder="Confirm password" class="form-control"/>
+        <div class="button_">
+            <input type="submit" value="Update Password" class="submit_button_reset_form"></input>
+         </div>
+        </form>
+       
+      </div>
+    </div>  
+</div>
+<% include ./partials/footer %>

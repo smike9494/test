@@ -1,0 +1,59 @@
+
+<% include ../partials/postdash %>
+<body class="npbgc">
+    <div class="container npa-container">
+        <div class="grid-show">
+            <div class="npa">
+              <h2>Edit:  "<%= mainArticles.title %>" </h2>
+
+            <form action="/article/<%= mainArticles.categorySlug %>/<%= mainArticles.slug %>?_method=PUT" method="POST">
+              <p>Title<span> *Title Of Article</span></p>
+              <input type="text" name="blog[title]"  maxlength="85" value="<%= mainArticles.title %>">
+              <p>Sub-Title<span> *Alternative Title For Article</span></p>
+              <input type="text" name="blog[subtitle]">
+              <p>Category<span> *Category To Post Article Under</span></p>
+             <select name="blog[category]">
+ 
+
+               <option <%= mainArticles.category ? "selected" : "mainArticles.category" %> value="<%= mainArticles.category %>">Current Category: <%= mainArticles.category %></option>
+               <option value="U.S. News">U.S. News</option>
+               <option value="Worldwide">Worldwide</option>
+               <option value="Economics">Economics</option>
+               <option value="Politics">Politics</option>
+               <option value="Business">Business</option>
+               <option value="Markets">Markets</option>
+               <option value="Tech">Tech</option>
+               <option value="Travel">Travel</option>
+               <option value="Lifestyle">Lifestyle</option>
+               <option value="Sports">Sports</option>
+               <option value="Video">Video</option>
+             </select>
+              <p>Priority<span> *Priority Of Article</span></p>
+              <select name="blog[priority]">
+                <option <%= mainArticles.priority ? "selected" : "mainArticles.priority" %> value="<%= mainArticles.priority %>">Current Priority: <%= mainArticles.priority %></option>
+                <option value="Breaking News">Breaking News</option>
+                <option value="Top Headlines">Top Headlines</option>
+              </select>
+              <p>Slug<span> *Unique ID Of Article, What The URL Will Display *Preferably Title Or Sub-Title*</span></p>
+              <input type="text" name="blog[slug]"  value="<%= mainArticles.slug %>">
+              <p>Images<span> *Images To Upload</span></p>
+              <input type="text" name="blog[image]" value="<%= mainArticles.image %>">
+              <p>Meta Description<span> *Description For Meta Tags</span></p>
+              <input type="text" name="blog[metaDescription]" value="<%= mainArticles.metaDescription %>">
+              <p>Content<span> *Content Of The Article</span></p>
+              <textarea class="textarea" name="blog[content]" id="" cols="30" rows="10">"<%= mainArticles.content %></textarea>
+              <p>Updated<span> *Let Viewer Know Post Has Been Updated</span></p>
+              <select name="blog[updated]" id="">
+                  <option <%= mainArticles.updated ? "selected" : "mainArticles.updated" %> value="<%= mainArticles.updated %>">Current Update Status: <%= mainArticles.updated %></option>
+                  <option value="true">True</option>
+                  <option value="false">False</option>
+              </select>
+              <button type="submit" class="registerPage_button bttn-fill bttn-md">Submit</button>
+          </form>
+          
+            </div>
+        </div>
+      </div>
+</body>
+
+<% include ../partials/footer %>

@@ -1,0 +1,139 @@
+<% include ./partials/dh %>
+
+
+    
+
+
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+					<div class="col-md-12">
+                        <div class="card card-posts">
+                            <div class="header">
+                                <h4 class="title">Posts
+								<a href="/post/new" class="btn btn-info btn-fill">Add New</a></h4>
+
+								<div class="row">
+									<div class="col-md-6">
+										<div class="stats">
+	                                        <a href="#">All</a>|
+											<a href="#">Pending (0)</a>|
+											<a href="#">Approved</a>|
+											<a href="#"><%= mainArticles.length %></a>
+	                                    </div>
+									</div>
+									<div class="col-md-6">
+										<form class="form-inline pull-right">
+										  <div class="form-group">
+										    <label class="sr-only">Search</label>
+										    <input type="input" class="form-control" placeholder="Write here...">
+										  </div>
+										  <button type="submit" class="btn btn-default btn-fill">Search Posts</button>
+										</form>
+									</div>
+								</div>
+                            </div>
+                            <div class="content table-responsive table-full-width">
+
+                                <table class="table">
+                                    <thead>
+                                        <th></th>
+										<th></th>
+                                    	<th>Title</th>
+                                    	<th>Author</th>
+                                    	<th>Categories</th>
+                                    	<th>Tags</th>
+										<th></th>
+										<th>Date</th>
+										<th>SEO</th>
+                                    </thead>
+                                    <tbody>
+										    <% mainArticles.forEach(function(mainArticles){ %>
+                                        <tr>
+                                        	<td>
+												<label class="checkbox">
+													<input type="checkbox" value="" data-toggle="checkbox">
+												</label>
+											</td>
+											<td>
+												<img src="<%= mainArticles.image %>"/>
+											</td>
+                                        	<td><%= mainArticles.title %></td>
+                                        	<td><%= mainArticles.author.name %></td>
+                                        	<td><%= mainArticles.category %></td>
+                                        	<td>-</td>
+											<td>
+												<i class="fa fa-comments"></i> <%= mainArticles.comments.length %>
+											</td>
+											<td>
+													<%= moment(mainArticles.updatedAt).format('LLL') %>
+											</td>
+											<td>
+												<i class="fa fa-circle text-warning"></i>
+											</td>
+											<td class="td-actions text-right">
+												<a href="/article/<%= mainArticles.categorySlug %>/<%= mainArticles.slug %>">
+													<button type="link"  rel="tooltip" title="View" class="btn btn-warning btn-simple btn-xs">
+															<i class="fa fa-picture-o"></i>
+													</button>
+												</a>
+												<a href="/article/<%= mainArticles.categorySlug %>/<%= mainArticles.slug %>/edit">
+													<button type="link" rel="tooltip" title="Edit Post" class="btn btn-info btn-simple btn-xs">
+															<i class="fa fa-edit"></i>
+													</button>
+												</a>
+												
+												<form action="/article/<%= mainArticles.categorySlug %>/<%= mainArticles.slug %>?_method=DELETE" method="POST">
+													<button type="link" rel="tooltip" title="Trash" class="btn btn-danger btn-simple btn-xs">
+														<i class="fa fa-times"></i>
+													</button>
+												</form>
+													
+												
+												
+											</td>
+										</tr>
+										<% }); %>
+
+										
+
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <footer class="footer">
+            <div class="container-fluid">
+                <nav class="pull-left">
+                    <ul>
+                        <li>
+                            <a href="#">
+                                Home
+                            </a>
+                        </li>
+
+                    </ul>
+                </nav>
+                <p class="copyright pull-right">
+                    &copy; 2016 <a href="http://www.creative-tim.com">Creative Tim</a>, made with love for a better web
+                </p>
+            </div>
+        </footer>
+
+    </div>
+
+
+
+</body>
+
+<% include ./partials/df %>
+
+
+</html>

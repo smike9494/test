@@ -1,0 +1,51 @@
+<title>Error, Page Not Found</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="/stylesheets/main1.css">
+<link rel="stylesheet" href="/stylesheets/media.css">
+<link rel="stylesheet" href="/stylesheets/font/fonts/fonts.css">
+<link rel="stylesheet" href="/stylesheets/font/fonts/fonts.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bttn.css/0.2.4/bttn.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/codemirror.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/codemirror.min.css">
+
+<div class="message-container">
+        <% if(success && success.length > 0) { %>
+        <div class="success-message">
+          <div class="message-content">
+              <%= success %> 
+          <!-- <span class="close">&times;</span> -->
+          </div>
+        </div>
+        <% } %> 
+        <% if(error && error.length > 0) { %>
+        <div class="error-message">
+          <div class="message-content">
+              <%= error %> 
+              <!-- <span class="close">&times;</span>  -->
+          </div>
+        </div>
+        <% } %> 
+     </div> 
+
+ <div style="background-color:#fff;" class="dash-logo-user">
+        <div class="header-container">
+            <div id="error-dash-nav-wrapper">
+                <div id="errorcallToAction">
+                    <a style="color:#000;  display:none;" id="toBack" href="/"><i class="far fa-arrow-alt-circle-left"></i> Back to <span class="ctabtn">VIPODAZA</span></a>
+                </div>
+                <div class="logo-title">
+                    <div class="title-container">
+                        <a style="color:#000;" href="/"><h2 style="color:#000; border:none;" >VIPODAZA</h2></a>
+                    </div>
+                </div>
+                <div  id="errorLogout">
+                    <% if(currentUser) { %>
+                    <a style="color:#000;" href="/logout">Logout <i class="far fa-arrow-alt-circle-right"></i></a>
+                    <% } %>
+                </div>
+            </div>
+          </div>
+      </div>

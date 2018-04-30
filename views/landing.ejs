@@ -1,0 +1,458 @@
+<% include ./partials/header %>
+<!-- <div class="desktop_MenuModal"> -->
+  <div id="myModalMenuBurger" class="content">
+      <span class="Desktopclose">&times;</span>
+      <div class="container">
+        <ul >
+          <li><a href="/">Home</a></li>
+          <li><a href="/us-news">U.S. News</a></li>
+          <li><a href="/worldwide">Worldwide</a></li>
+          <li><a href="/economics">Economics</a></li>
+          <li><a href="/politics">Politics</a></li>
+          <li><a href="/business">Business</a></li>
+          <li><a href="/markets">Markets</a></li>
+          <li><a href="/tech">Tech</a></li>
+          <li><a href="/travel">Travel</a></li>
+          <li><a href="/lifestyle">Lifestyle</a></li>
+          <li><a href="/sports">Sports</a></li>
+          <li><a href="/video">Video</a></li>
+        </ul>
+      </div>
+  </div>
+<!-- </div> -->
+
+
+
+
+
+
+<div id="myModalMobileMenuBurger" class="modal">
+  <div class="content">
+      <span class="Mobileclose">&times;</span>
+      <ul >
+        <li><a href="/">Home</a></li>
+        <li><a href="/us-news">U.S. News</a></li>
+        <li><a href="/worldwide">Worldwide</a></li>
+        <li><a href="/economics">Economics</a></li>
+        <li><a href="/politics">Politics</a></li>
+        <li><a href="/business">Business</a></li>
+        <li><a href="/markets">Markets</a></li>
+        <li><a href="/tech">Tech</a></li>
+        <li><a href="/travel">Travel</a></li>
+        <li><a href="/lifestyle">Lifestyle</a></li>
+        <li><a href="/sports">Sports</a></li>
+        <li><a href="/video">Video</a></li>
+      </ul>
+  </div>
+</div>
+<div class="container">
+  <div class="grid">
+  <% result.breakingNews.forEach(function(mainArticles){ %>
+      <div class="main-story">
+        <a href="/article/<%= mainArticles.categorySlug %>/<%= mainArticles.slug %>"><img src="<%= mainArticles.image %>"></a>
+          <div class="title">
+              <span class="breaking breaking-news"> BREAKING NEWS</span>
+              <a href="/article/<%= mainArticles.categorySlug %>/<%= mainArticles.slug %>"><h2><%= mainArticles.title %></h2></a>
+            <%  if (mainArticles) { %>
+              <span class="author-icon"></i><%= mainArticles.author.name %></span>
+            <% } %>
+              <span><img class="breaking-time-stamp" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMTIgMmM1LjUxNCAwIDEwIDQuNDg2IDEwIDEwcy00LjQ4NiAxMC0xMCAxMC0xMC00LjQ4Ni0xMC0xMCA0LjQ4Ni0xMCAxMC0xMHptMC0yYy02LjYyNyAwLTEyIDUuMzczLTEyIDEyczUuMzczIDEyIDEyIDEyIDEyLTUuMzczIDEyLTEyLTUuMzczLTEyLTEyLTEyem01Ljg0OCAxMi40NTljLjIwMi4wMzguMjAyLjMzMy4wMDEuMzcyLTEuOTA3LjM2MS02LjA0NSAxLjExMS02LjU0NyAxLjExMS0uNzE5IDAtMS4zMDEtLjU4Mi0xLjMwMS0xLjMwMSAwLS41MTIuNzctNS40NDcgMS4xMjUtNy40NDUuMDM0LS4xOTIuMzEyLS4xODEuMzQzLjAxNGwuOTg1IDYuMjM4IDUuMzk0IDEuMDExeiIvPjwvc3ZnPg==">
+              <%= moment(mainArticles.date).fromNow(true) %> ago </span> 
+              <% if (mainArticles.updatedAt > mainArticles.createdAt && mainArticles.updated === true) { %>
+                <span class="updated-icon-landing">Updated <%= //moment(mainArticles.updated).fromNow(true) %> </span>
+                <% }; %>
+          </div>
+      </div>
+      <% });%>
+  <div class="latest-headlines">
+            <ul>
+              <div class="top-segment">
+                    <h2> Latest Headlines</h2>
+              </div>
+              <% result.topHeadlines.forEach(function(mainArticles){ %>
+               <li>
+                   <div class="img-url">
+                        <span class="sub-link">
+                          
+                          <a href="/article/<%= mainArticles.categorySlug %>/<%= mainArticles.slug %>"><%=mainArticles.title%></a>
+
+                          <span class='right-column-tag'>
+                            <span><img class="time-stamp" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMTIgMmM1LjUxNCAwIDEwIDQuNDg2IDEwIDEwcy00LjQ4NiAxMC0xMCAxMC0xMC00LjQ4Ni0xMC0xMCA0LjQ4Ni0xMCAxMC0xMHptMC0yYy02LjYyNyAwLTEyIDUuMzczLTEyIDEyczUuMzczIDEyIDEyIDEyIDEyLTUuMzczIDEyLTEyLTUuMzczLTEyLTEyLTEyem01Ljg0OCAxMi40NTljLjIwMi4wMzguMjAyLjMzMy4wMDEuMzcyLTEuOTA3LjM2MS02LjA0NSAxLjExMS02LjU0NyAxLjExMS0uNzE5IDAtMS4zMDEtLjU4Mi0xLjMwMS0xLjMwMSAwLS41MTIuNzctNS40NDcgMS4xMjUtNy40NDUuMDM0LS4xOTIuMzEyLS4xODEuMzQzLjAxNGwuOTg1IDYuMjM4IDUuMzk0IDEuMDExeiIvPjwvc3ZnPg=="> <%= moment(mainArticles.date).fromNow(true) %> ago
+                          </span>
+                         
+                         
+                        </span>
+                  </div>
+                 <%  }); %>
+               </li>
+            </ul>
+          </div>
+<div class="border"></div>
+    <div class="section-one">
+              <div class="name">
+                  <h2>U.S. News</h2>
+              </div>
+              <div class="ul">
+                <ul>
+                  <%  result.usNews.forEach(function(mainArticles){ %>
+                  <li>
+                    <div class="img-container">
+                        <a class=article-link href="/article/<%= mainArticles.categorySlug %>/<%= mainArticles.slug %>"><img src="<%= mainArticles.image %>" alt=""></a>
+                        <div class="title-container">
+                          <span class="sub-link">
+                            <a href="/article/<%= mainArticles.categorySlug %>/<%= mainArticles.slug %>"><%=mainArticles.title %></a>
+                            <br>
+                              <span><img class="time-stamp" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMTIgMmM1LjUxNCAwIDEwIDQuNDg2IDEwIDEwcy00LjQ4NiAxMC0xMCAxMC0xMC00LjQ4Ni0xMC0xMCA0LjQ4Ni0xMCAxMC0xMHptMC0yYy02LjYyNyAwLTEyIDUuMzczLTEyIDEyczUuMzczIDEyIDEyIDEyIDEyLTUuMzczIDEyLTEyLTUuMzczLTEyLTEyLTEyem01Ljg0OCAxMi40NTljLjIwMi4wMzguMjAyLjMzMy4wMDEuMzcyLTEuOTA3LjM2MS02LjA0NSAxLjExMS02LjU0NyAxLjExMS0uNzE5IDAtMS4zMDEtLjU4Mi0xLjMwMS0xLjMwMSAwLS41MTIuNzctNS40NDcgMS4xMjUtNy40NDUuMDM0LS4xOTIuMzEyLS4xODEuMzQzLjAxNGwuOTg1IDYuMjM4IDUuMzk0IDEuMDExeiIvPjwvc3ZnPg==">
+                              <%= moment(mainArticles.date).fromNow(true) %> ago </span> 
+                              <%  if (mainArticles) { %>
+                                <span class="author-icon"><%= mainArticles.author.name %></span>
+                              <% } %>
+                              <% if (mainArticles.updatedAt > mainArticles.createdAt && mainArticles.updated === true) { %>
+                                <span class="updated-icon-landing">Updated <%= //moment(mainArticles.updated).fromNow(true) %> </span>
+                                <% }; %>
+                          </span>
+                        </div>
+                    </div>
+                      <% }); %>
+                  </li>
+                </ul>
+              </div>
+            </div>
+    <div class="section-two">
+        <div class="name">
+           <h2>Worldwide</h2>
+        </div>
+          <div class="ul">
+            <ul>
+              <% result.worldwide.forEach(function(mainArticles){ %>
+              <li>
+                <div class="img-container">
+                    <a href="/article/<%= mainArticles.categorySlug %>/<%= mainArticles.slug %>"><img src="<%= mainArticles.image %>" alt=""></a>
+                    <div class="title-container">
+                      <span class="sub-link">
+                        <a href="/article/<%= mainArticles.categorySlug %>/<%= mainArticles.slug %>"><%=mainArticles.title %></a>
+                        <br>
+                        <span><img class="time-stamp" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMTIgMmM1LjUxNCAwIDEwIDQuNDg2IDEwIDEwcy00LjQ4NiAxMC0xMCAxMC0xMC00LjQ4Ni0xMC0xMCA0LjQ4Ni0xMCAxMC0xMHptMC0yYy02LjYyNyAwLTEyIDUuMzczLTEyIDEyczUuMzczIDEyIDEyIDEyIDEyLTUuMzczIDEyLTEyLTUuMzczLTEyLTEyLTEyem01Ljg0OCAxMi40NTljLjIwMi4wMzguMjAyLjMzMy4wMDEuMzcyLTEuOTA3LjM2MS02LjA0NSAxLjExMS02LjU0NyAxLjExMS0uNzE5IDAtMS4zMDEtLjU4Mi0xLjMwMS0xLjMwMSAwLS41MTIuNzctNS40NDcgMS4xMjUtNy40NDUuMDM0LS4xOTIuMzEyLS4xODEuMzQzLjAxNGwuOTg1IDYuMjM4IDUuMzk0IDEuMDExeiIvPjwvc3ZnPg==">
+                          <%= moment(mainArticles.date).fromNow(true) %> ago </span> 
+                          <%  if (mainArticles) { %>
+                            <span class="author-icon"><%= mainArticles.author.name %></span>
+                          <% } %>
+                          <% if (mainArticles.updatedAt > mainArticles.createdAt && mainArticles.updated === true) { %>
+                            <span class="updated-icon-landing">Updated <%= //moment(mainArticles.updated).fromNow(true) %> </span>
+                            <% }; %>
+                      </span>
+                    </div>
+                </div>
+                  <% }); %>
+              </li>
+            </ul>
+          </div>    
+      </div>
+
+    <div class="section-three">
+      <div class="name">
+      <h2>Economics</h2>
+    </div>
+    <div class="ul">
+      <ul>  
+        <% result.economics.forEach(function(mainArticles) { %>
+        <li>
+          <div class="img-container">
+              <a href="/article/<%= mainArticles.categorySlug %>/<%= mainArticles.slug %>"><img src="<%= mainArticles.image %>" alt=""></a>
+              <div class="title-container">
+                  <span class="sub-link">
+                      <a href="/article/<%= mainArticles.categorySlug %>/<%= mainArticles.slug %>"><%=mainArticles.title %></a>
+                      <br>
+                      <span><img class="time-stamp" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMTIgMmM1LjUxNCAwIDEwIDQuNDg2IDEwIDEwcy00LjQ4NiAxMC0xMCAxMC0xMC00LjQ4Ni0xMC0xMCA0LjQ4Ni0xMCAxMC0xMHptMC0yYy02LjYyNyAwLTEyIDUuMzczLTEyIDEyczUuMzczIDEyIDEyIDEyIDEyLTUuMzczIDEyLTEyLTUuMzczLTEyLTEyLTEyem01Ljg0OCAxMi40NTljLjIwMi4wMzguMjAyLjMzMy4wMDEuMzcyLTEuOTA3LjM2MS02LjA0NSAxLjExMS02LjU0NyAxLjExMS0uNzE5IDAtMS4zMDEtLjU4Mi0xLjMwMS0xLjMwMSAwLS41MTIuNzctNS40NDcgMS4xMjUtNy40NDUuMDM0LS4xOTIuMzEyLS4xODEuMzQzLjAxNGwuOTg1IDYuMjM4IDUuMzk0IDEuMDExeiIvPjwvc3ZnPg==">
+                        <%= moment(mainArticles.date).fromNow(true) %> ago </span> 
+                        <%  if (mainArticles) { %>
+                          <span class="author-icon"><%= mainArticles.author.name %></span>
+                        <% } %>
+                        <% if (mainArticles.updatedAt > mainArticles.createdAt && mainArticles.updated === true) { %>
+                          <span class="updated-icon-landing">Updated <%= //moment(mainArticles.updated).fromNow(true) %> </span>
+                          <% }; %>
+                  </span>
+              </div>
+          </div>
+            <% }); %>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="border-four"></div>
+
+  <div class="section-four">
+    <div class="name">
+      <h2>Business</h2>
+   </div>
+   <div class="ul">
+    <ul>  
+      <% result.business.forEach(function(mainArticles) { %>
+      <li>
+        <div class="img-container">
+            <a href="/article/<%= mainArticles.categorySlug %>/<%= mainArticles.slug %>"><img src="<%= mainArticles.image %>" alt=""></a>
+            <div class="title-container">
+                <span class="sub-link">
+                    <a href="/article/<%= mainArticles.categorySlug %>/<%= mainArticles.slug %>"><%=mainArticles.title %></a>
+                    <br>
+                    <span><img class="time-stamp" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMTIgMmM1LjUxNCAwIDEwIDQuNDg2IDEwIDEwcy00LjQ4NiAxMC0xMCAxMC0xMC00LjQ4Ni0xMC0xMCA0LjQ4Ni0xMCAxMC0xMHptMC0yYy02LjYyNyAwLTEyIDUuMzczLTEyIDEyczUuMzczIDEyIDEyIDEyIDEyLTUuMzczIDEyLTEyLTUuMzczLTEyLTEyLTEyem01Ljg0OCAxMi40NTljLjIwMi4wMzguMjAyLjMzMy4wMDEuMzcyLTEuOTA3LjM2MS02LjA0NSAxLjExMS02LjU0NyAxLjExMS0uNzE5IDAtMS4zMDEtLjU4Mi0xLjMwMS0xLjMwMSAwLS41MTIuNzctNS40NDcgMS4xMjUtNy40NDUuMDM0LS4xOTIuMzEyLS4xODEuMzQzLjAxNGwuOTg1IDYuMjM4IDUuMzk0IDEuMDExeiIvPjwvc3ZnPg==">
+                      <%= moment(mainArticles.date).fromNow(true) %> ago </span> 
+                      <%  if (mainArticles) { %>
+                        <span class="author-icon"><%= mainArticles.author.name %></span>
+                      <% } %>
+                      <% if (mainArticles.updatedAt > mainArticles.createdAt && mainArticles.updated === true) { %>
+                        <span class="updated-icon-landing">Updated <%= //moment(mainArticles.updated).fromNow(true) %> </span>
+                        <% }; %>
+                </span>
+            </div>
+        </div>
+          <% }); %>
+      </li>
+    </ul>
+  </div>
+  </div>
+
+  <div class="section-five">
+    <div class="name">
+      <h2>Markets</h2>
+   </div>
+   <div class="ul">
+    <ul>  
+      <% result.markets.forEach(function(mainArticles) { %>
+      <li>
+        <div class="img-container">
+            <a href="/article/<%= mainArticles.categorySlug %>/<%= mainArticles.slug %>"><img src="<%= mainArticles.image %>" alt=""></a>
+            <div class="title-container">
+                <span class="sub-link">
+                    <a href="/article/<%= mainArticles.categorySlug %>/<%= mainArticles.slug %>"><%=mainArticles.title %></a>
+                    <br>
+                    <span><img class="time-stamp" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMTIgMmM1LjUxNCAwIDEwIDQuNDg2IDEwIDEwcy00LjQ4NiAxMC0xMCAxMC0xMC00LjQ4Ni0xMC0xMCA0LjQ4Ni0xMCAxMC0xMHptMC0yYy02LjYyNyAwLTEyIDUuMzczLTEyIDEyczUuMzczIDEyIDEyIDEyIDEyLTUuMzczIDEyLTEyLTUuMzczLTEyLTEyLTEyem01Ljg0OCAxMi40NTljLjIwMi4wMzguMjAyLjMzMy4wMDEuMzcyLTEuOTA3LjM2MS02LjA0NSAxLjExMS02LjU0NyAxLjExMS0uNzE5IDAtMS4zMDEtLjU4Mi0xLjMwMS0xLjMwMSAwLS41MTIuNzctNS40NDcgMS4xMjUtNy40NDUuMDM0LS4xOTIuMzEyLS4xODEuMzQzLjAxNGwuOTg1IDYuMjM4IDUuMzk0IDEuMDExeiIvPjwvc3ZnPg==">
+                      <%= moment(mainArticles.date).fromNow(true) %> ago </span> 
+                      <%  if (mainArticles) { %>
+                        <span class="author-icon"><%= mainArticles.author.name %></span>
+                      <% } %>
+                      <% if (mainArticles.updatedAt > mainArticles.createdAt && mainArticles.updated === true) { %>
+                        <span class="updated-icon-landing">Updated <%= //moment(mainArticles.updated).fromNow(true) %> </span>
+                        <% }; %>
+                </span>
+            </div>
+        </div>
+          <% }); %>
+      </li>
+    </ul>
+   </div>
+  </div>
+
+  <div class="section-six">
+    <div class="name">
+      <h2>Tech</h2>
+   </div>
+       <div class="ul">
+      <ul>  
+        <% result.tech.forEach(function(mainArticles) { %>
+        <li>
+          <div class="img-container">
+              <a href="/article/<%= mainArticles.categorySlug %>/<%= mainArticles.slug %>"><img src="<%= mainArticles.image %>" alt=""></a>
+              <div class="title-container">
+                  <span class="sub-link">
+                      <a href="/article/<%= mainArticles.categorySlug %>/<%= mainArticles.slug %>"><%=mainArticles.title %></a>
+                      <br>
+                      <span><img class="time-stamp" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMTIgMmM1LjUxNCAwIDEwIDQuNDg2IDEwIDEwcy00LjQ4NiAxMC0xMCAxMC0xMC00LjQ4Ni0xMC0xMCA0LjQ4Ni0xMCAxMC0xMHptMC0yYy02LjYyNyAwLTEyIDUuMzczLTEyIDEyczUuMzczIDEyIDEyIDEyIDEyLTUuMzczIDEyLTEyLTUuMzczLTEyLTEyLTEyem01Ljg0OCAxMi40NTljLjIwMi4wMzguMjAyLjMzMy4wMDEuMzcyLTEuOTA3LjM2MS02LjA0NSAxLjExMS02LjU0NyAxLjExMS0uNzE5IDAtMS4zMDEtLjU4Mi0xLjMwMS0xLjMwMSAwLS41MTIuNzctNS40NDcgMS4xMjUtNy40NDUuMDM0LS4xOTIuMzEyLS4xODEuMzQzLjAxNGwuOTg1IDYuMjM4IDUuMzk0IDEuMDExeiIvPjwvc3ZnPg==">
+                        <%= moment(mainArticles.date).fromNow(true) %> ago </span> 
+                        <%  if (mainArticles) { %>
+                          <span class="author-icon"><%= mainArticles.author.name %></span>
+                        <% } %>
+                        <% if (mainArticles.updatedAt > mainArticles.createdAt && mainArticles.updated === true) { %>
+                          <span class="updated-icon-landing">Updated <%= //moment(mainArticles.updated).fromNow(true) %> </span>
+                          <% }; %>
+                  </span>
+              </div>
+          </div>
+            <% }); %>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="border-five"></div>
+
+  <div class="section-seven">
+      <div class="name">
+        <h2>Lifestyle</h2>
+     </div>
+         <div class="ul">
+        <ul>  
+          <% result.lifestyle.forEach(function(mainArticles) { %>
+          <li>
+            <div class="img-container">
+                <a href="/article/<%= mainArticles.categorySlug %>/<%= mainArticles.slug %>"><img src="<%= mainArticles.image %>" alt=""></a>
+                <div class="title-container">
+                    <span class="sub-link">
+                        <a href="/article/<%= mainArticles.categorySlug %>/<%= mainArticles.slug %>"><%=mainArticles.title %></a>
+                        <br>
+                        <span><img class="time-stamp" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMTIgMmM1LjUxNCAwIDEwIDQuNDg2IDEwIDEwcy00LjQ4NiAxMC0xMCAxMC0xMC00LjQ4Ni0xMC0xMCA0LjQ4Ni0xMCAxMC0xMHptMC0yYy02LjYyNyAwLTEyIDUuMzczLTEyIDEyczUuMzczIDEyIDEyIDEyIDEyLTUuMzczIDEyLTEyLTUuMzczLTEyLTEyLTEyem01Ljg0OCAxMi40NTljLjIwMi4wMzguMjAyLjMzMy4wMDEuMzcyLTEuOTA3LjM2MS02LjA0NSAxLjExMS02LjU0NyAxLjExMS0uNzE5IDAtMS4zMDEtLjU4Mi0xLjMwMS0xLjMwMSAwLS41MTIuNzctNS40NDcgMS4xMjUtNy40NDUuMDM0LS4xOTIuMzEyLS4xODEuMzQzLjAxNGwuOTg1IDYuMjM4IDUuMzk0IDEuMDExeiIvPjwvc3ZnPg==">
+                          <%= moment(mainArticles.date).fromNow(true) %> ago </span> 
+                          <%  if (mainArticles) { %>
+                            <span class="author-icon"><%= mainArticles.author.name %></span>
+                          <% } %>
+                          <% if (mainArticles.updatedAt > mainArticles.createdAt && mainArticles.updated === true) { %>
+                            <span class="updated-icon-landing">Updated <%= //moment(mainArticles.updated).fromNow(true) %> </span>
+                            <% }; %>
+                    </span>
+                </div>
+            </div>
+              <% }); %>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="section-eight">
+        <div class="name">
+          <h2>Travel</h2>
+       </div>
+           <div class="ul">
+          <ul>  
+            <% result.travel.forEach(function(mainArticles) { %>
+            <li>
+              <div class="img-container">
+                  <a href="/article/<%= mainArticles.categorySlug %>/<%= mainArticles.slug %>"><img src="<%= mainArticles.image %>" alt=""></a>
+                  <div class="title-container">
+                      <span class="sub-link">
+                          <a href="/article/<%= mainArticles.categorySlug %>/<%= mainArticles.slug %>"><%=mainArticles.title %></a>
+                          <br>
+                          <span><img class="time-stamp" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMTIgMmM1LjUxNCAwIDEwIDQuNDg2IDEwIDEwcy00LjQ4NiAxMC0xMCAxMC0xMC00LjQ4Ni0xMC0xMCA0LjQ4Ni0xMCAxMC0xMHptMC0yYy02LjYyNyAwLTEyIDUuMzczLTEyIDEyczUuMzczIDEyIDEyIDEyIDEyLTUuMzczIDEyLTEyLTUuMzczLTEyLTEyLTEyem01Ljg0OCAxMi40NTljLjIwMi4wMzguMjAyLjMzMy4wMDEuMzcyLTEuOTA3LjM2MS02LjA0NSAxLjExMS02LjU0NyAxLjExMS0uNzE5IDAtMS4zMDEtLjU4Mi0xLjMwMS0xLjMwMSAwLS41MTIuNzctNS40NDcgMS4xMjUtNy40NDUuMDM0LS4xOTIuMzEyLS4xODEuMzQzLjAxNGwuOTg1IDYuMjM4IDUuMzk0IDEuMDExeiIvPjwvc3ZnPg==">
+                            <%= moment(mainArticles.date).fromNow(true) %> ago </span> 
+                            <%  if (mainArticles) { %>
+                              <span class="author-icon"><%= mainArticles.author.name %></span>
+                            <% } %>
+                            <% if (mainArticles.updatedAt > mainArticles.createdAt && mainArticles.updated === true) { %>
+                              <span class="updated-icon-landing">Updated <%= //moment(mainArticles.updated).fromNow(true) %> </span>
+                              <% }; %>
+                      </span>
+                  </div>
+              </div>
+                <% }); %>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="section-nine">
+          <div class="name">
+            <h2>Sports</h2>
+         </div>
+             <div class="ul">
+            <ul>  
+              <% result.sports.forEach(function(mainArticles) { %>
+              <li>
+                <div class="img-container">
+                    <a href="/article/<%= mainArticles.categorySlug %>/<%= mainArticles.slug %>"><img src="<%= mainArticles.image %>" alt=""></a>
+                    <div class="title-container">
+                        <span class="sub-link">
+                            <a href="/article/<%= mainArticles.categorySlug %>/<%= mainArticles.slug %>"><%=mainArticles.title %></a>
+                            <br>
+                            <span><img class="time-stamp" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMTIgMmM1LjUxNCAwIDEwIDQuNDg2IDEwIDEwcy00LjQ4NiAxMC0xMCAxMC0xMC00LjQ4Ni0xMC0xMCA0LjQ4Ni0xMCAxMC0xMHptMC0yYy02LjYyNyAwLTEyIDUuMzczLTEyIDEyczUuMzczIDEyIDEyIDEyIDEyLTUuMzczIDEyLTEyLTUuMzczLTEyLTEyLTEyem01Ljg0OCAxMi40NTljLjIwMi4wMzguMjAyLjMzMy4wMDEuMzcyLTEuOTA3LjM2MS02LjA0NSAxLjExMS02LjU0NyAxLjExMS0uNzE5IDAtMS4zMDEtLjU4Mi0xLjMwMS0xLjMwMSAwLS41MTIuNzctNS40NDcgMS4xMjUtNy40NDUuMDM0LS4xOTIuMzEyLS4xODEuMzQzLjAxNGwuOTg1IDYuMjM4IDUuMzk0IDEuMDExeiIvPjwvc3ZnPg==">
+                              <%= moment(mainArticles.date).fromNow(true) %> ago </span> 
+                              <%  if (mainArticles) { %>
+                                <span class="author-icon"><%= mainArticles.author.name %></span>
+                              <% } %>
+                              <% if (mainArticles.updatedAt > mainArticles.createdAt && mainArticles.updated === true) { %>
+                                <span class="updated-icon-landing">Updated <%= //moment(mainArticles.updated).fromNow(true) %> </span>
+                                <% }; %>
+                        </span>
+                    </div>
+                </div>
+                  <% }); %>
+              </li>
+            </ul>
+          </div>
+        </div>
+  <div class="border-one"></div>
+  <!-- <div class="name video-name">
+      <h2>Latest Videos</h2>
+   </div>
+  <div class="section-ten">
+    <div class="section-four-img">
+        <img class="screenshot" src="https://www.dailywire.com/sites/default/files/styles/169medium/public/uploads/2018/02/groundhog.jpg?itok=8Kcj0wbE" alt="">
+        <div class="img-text">
+            <span  class="icon"><i class="fas fa-play fa-2x"></i></span>
+            <h4>PRISON PARADISE: All Inmates In NY State Prisons Are Getting FREE Electronic Devices</h4>
+          </div>
+      </div>
+    <div class="section-four-img">
+        <img class="screenshot" src="https://www.dailywire.com/sites/default/files/styles/169medium/public/uploads/2018/01/donald_trump_sotu_gi.jpg?itok=cdr7Y3cR" alt="">
+        <div class="img-text">
+            <span class="icon"><i class="fas fa-play fa-2x"></i></span>
+            <h4>PRISON PARADISE: All Inmates In NY State Prisons Are Getting FREE Electronic Devices</h4>
+          </div>
+      </div>
+   <div class="section-four-img">
+        <img class="screenshot" src="https://www.dailywire.com/sites/default/files/styles/169medium/public/uploads/2018/01/gettyimages-538711208.jpg?itok=K7JxIC7P" alt="">
+        <div class="img-text">
+            <span class="icon"><i class="fas fa-play fa-2x"></i></span>
+            <h4>PRISON PARADISE: All Inmates In NY State Prisons Are Getting FREE Electronic Devices</h4>
+          </div>
+      </div>
+    <div class="section-four-img">
+        <img class="screenshot" src="https://www.dailywire.com/sites/default/files/styles/169medium/public/uploads/2018/02/ben_and_the_rock.jpg?itok=MCVF8cV9" alt="">
+        <div class="img-text">
+            <span class="icon"><i class="fas fa-play fa-2x"></i></span>
+            <h4>PRISON PARADISE: All Inmates In NY State Prisons Are Getting FREE Electronic Devices</h4>
+          </div>
+      </div>
+    <div class="section-four-img">
+        <img class="screenshot" src="https://www.dailywire.com/sites/default/files/styles/169medium/public/uploads/2018/02/3ecef97b-f1a9-443f-94b2-a232c8af73f0.jpeg?itok=jX0lmw41" alt="">
+        <div class="img-text">
+            <span class="icon"><i class="fas fa-play fa-2x"></i></span>
+            <h4>PRISON PARADISE: All Inmates In NY State Prisons Are Getting FREE Electronic Devices</h4>
+          </div>
+      </div>
+    <div class="section-four-img">
+        <img class="screenshot" src="https://www.dailywire.com/sites/default/files/styles/169medium/public/uploads/2018/01/a13ff421-f8f2-4978-b7e8-115a8fb74aa7.jpeg?itok=7iA11Grr" alt="">
+        <div class="img-text">
+          <span class="icon"><i class="fas fa-play fa-2x"></i></span>
+          <h4>PRISON PARADISE: All Inmates In NY State Prisons Are Getting FREE Electronic Devices</h4>
+        </div>
+    </div>
+        <div class="section-four-img">
+            <img class="screenshot" src="https://www.dailywire.com/sites/default/files/styles/169medium/public/uploads/2018/02/capture_0.jpg?itok=WoxhAiBT" alt="">
+            <div class="img-text">
+              <span class="icon"><i class="fas fa-play fa-2x"></i></span>
+              <h4>PRISON PARADISE: All Inmates In NY State Prisons Are Getting FREE Electronic Devices</h4>
+            </div>
+          </div>
+   <div class="section-four-img">
+        <div class="link-image"></div>
+        <img class='screenshot'src="https://www.dailywire.com/sites/default/files/styles/169medium/public/uploads/2018/02/a22152bf-4828-4f42-a492-49ff03a18584.jpeg?itok=9UcdkILw" alt="">
+          <div class="img-text">
+            <span  class="icon"><i class="fas fa-play fa-2x"></i></span>
+              <h4>5 Things You Need To Know About The Bombshell House Intelligence Memo </h4>
+            </div>
+      </div>
+  </div> -->
+
+  <div class="border-two"></div>
+  <div class="section-eleven">
+    <div class="large_summary">
+      <h1 class="large_summaryh1"><a href="#">"There's No Cash To Spend" - Elorza Becomes Largest Venezuelan City To Launch "Community Currency"</a></h1>
+      <div class="large_summaryStory">
+        <a href="#"><img src="http://a3.espncdn.com/combiner/i?img=%2Fphoto%2F2018%2F0313%2Fr340682_1296x729_16%2D9.jpg&w=1140&cquality=40" alt=""></a>
+      </div>
+      <div class="large_summaryDetails">
+        <span class="author-icon">Michael Smith</span>
+        <span><img class="breaking-time-stamp" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMTIgMmM1LjUxNCAwIDEwIDQuNDg2IDEwIDEwcy00LjQ4NiAxMC0xMCAxMC0xMC00LjQ4Ni0xMC0xMCA0LjQ4Ni0xMCAxMC0xMHptMC0yYy02LjYyNyAwLTEyIDUuMzczLTEyIDEyczUuMzczIDEyIDEyIDEyIDEyLTUuMzczIDEyLTEyLTUuMzczLTEyLTEyLTEyem01Ljg0OCAxMi40NTljLjIwMi4wMzguMjAyLjMzMy4wMDEuMzcyLTEuOTA3LjM2MS02LjA0NSAxLjExMS02LjU0NyAxLjExMS0uNzE5IDAtMS4zMDEtLjU4Mi0xLjMwMS0xLjMwMSAwLS41MTIuNzctNS40NDcgMS4xMjUtNy40NDUuMDM0LS4xOTIuMzEyLS4xODEuMzQzLjAxNGwuOTg1IDYuMjM4IDUuMzk0IDEuMDExeiIvPjwvc3ZnPg==" alt=""> 8 hours ago</span>
+      </div>
+     
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+    
+<% include ./partials/footer %>

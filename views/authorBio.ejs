@@ -1,0 +1,18 @@
+<% include ./partials/rbacHeader %>
+
+<div class="avatar">
+    <div class="avatar-img-profile">
+        <div class="authorImg-container">
+            <img id="myBtn" src="/<%= foundAuthor.profilePhoto %>" alt="">
+            <!-- <% //if(user) {%> -->
+            <div>
+            <h3><%= foundAuthor.name %></h3>
+            <span>@<%= foundAuthor.username %></span>
+            <% if(foundAuthor.permission == 'Author') { %>
+            <h5><%= foundAuthor.permission %></h5>
+            <% } %>
+            </div>
+        </div>
+    </div>
+ </div>
+ <% include ./partials/footer %>
