@@ -61,11 +61,6 @@ var mainArticleSchema = new mongoose.Schema({
   },
   viewCount: {
     type: Array,
-    timestamps: {
-      createdAt: 'createdAt',
-      updatedAt: 'updatedAt',
-      trim: true
-   } 
   },
   category: {
     type: String,
@@ -132,7 +127,6 @@ mainArticleSchema.virtual('url').get(function() {
   // formatted results in the format '2012/10/'
 
 mainArticleSchema.set('toObject', { getters: true });  
-
   return formatted + this.slug;
 });
 

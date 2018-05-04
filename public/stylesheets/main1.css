@@ -1,5 +1,15 @@
 @import url("https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700|Playfair+Display:400,700|Oswald:400,700");
 
+@font-face {
+  font-family: WhyYouHeffBeMed;
+  src: url('../stylesheets/font/fonts/ProximaNovaCond-Semibold.otf')
+}
+@font-face{
+  font-family: nuckingfuts;
+  src: url('../stylesheets/font/fonts/Proxima Nova Semibold.otf')
+}
+
+
 *{
   padding:0;
   margin: 0;
@@ -296,7 +306,7 @@ nav {
   font-weight: 400;
   color:#000 ;
   font-size: 2.5em;
-  font-family: 'ProximaNovaCond-Semibold', sans-serif;
+  font-family: WhyYouHeffBeMed;
   line-height: 40px;
   max-width: 800px;
 }
@@ -309,7 +319,9 @@ nav {
   color: #000;
   font-size: 1.1em;
 }
-
+/* .title span {
+  font-family: pn;
+} */
 .breaking-news {
   background-color:#CF000F; /*329fca*//*CF000F*/
   color: #fff ;
@@ -363,7 +375,7 @@ ul li div span a {
   font-weight: 400;
   font-size: 1.125rem;
   line-height: 22px;
-  font-family: 'ProximaNovaCond-Semibold', sans-serif;
+  font-family: WhyYouHeffBeMed;
 }
 
 ul li div a:hover {
@@ -475,7 +487,6 @@ span {
   -webkit-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out;
 }
-
 .img-container .title-container {
   /* width: 275px; */
   display: grid;
@@ -523,6 +534,7 @@ hr {
   font-size: 14px;
   z-index: 0;
   font-weight: 400;
+  font-family: WhyYouHeffBeMed;
 }
 .showpage-content {
   line-height: 1.5em;
@@ -536,11 +548,11 @@ hr {
   /* padding-bottom: 5px;
   margin-bottom: 5px;
   border-bottom: 1px solid #e5e5e5; */
-  font-family: 'ProximaNovaCond-Semibold', sans-serif;
+  font-family: WhyYouHeffBeMed;
  
 }
 .page-content   {
-  font-size: 18px;
+  /* font-size: 18px; */
   line-height: 1.65em;
   font-weight: 300;
   color: #000;
@@ -551,15 +563,17 @@ hr {
   margin-bottom: 10px;
   font-family: 'Proxima Nova', sans-serif;
   font-style: normal;
+  font-size: 1.15rem;
+  font-weight: 400;
 }
 
 .grid {
-    display:grid;
-    grid-template-columns:repeat(3, 1fr);
-    grid-template-rows:auto;
-    grid-column-gap: 10px;
-    /* justify-items:stretch; */
-    /* height: 100%; */
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  grid-template-rows:auto;
+  grid-column-gap: 10px;
+  /* justify-items:stretch; */
+  /* height: 100%; */
 }
 .grid-show {
   display: grid;
@@ -1130,7 +1144,7 @@ border: 1px solid #fff;
   -ms-flex-align: center;
   align-items: center;
   text-align: center;
-  padding-bottom: 20px;
+  padding-bottom: 12px;
 }
 .avatar-img-profile {
   -webkit-box-pack: left;
@@ -1280,6 +1294,7 @@ ol li {
   font-style: oblique;
   margin-left: 5px;
   font-weight: 400;
+  font-family: WhyYouHeffBeMed;
 }
 
 .updated-icon-landing {
@@ -1288,6 +1303,7 @@ ol li {
   font-style: oblique;
   margin-left: 5px;
   font-weight: 400;
+  font-family: WhyYouHeffBeMed;
  }
  
 
@@ -1335,21 +1351,12 @@ ol li {
   color: #000;
   cursor: pointer;
 }
-
-
-
-
-
-
-
-
-
 .navbar{
   /* background-color:#fff; */
   /* overflow:hidden; */
   height:52px;
   -webkit-box-shadow: 1px  1px #DADFE1;
-  box-shadow: 1px  1px #DADFE1;
+  box-shadow: 1px 1px 1px #DADFE1;
   /* padding: 0px 60px; */
 }
 
@@ -1540,7 +1547,7 @@ ol li {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
-  height: 53px;
+  height: 52px;
   border: none;
 }
 #sticky-title {
@@ -2579,7 +2586,7 @@ input[type="checkbox"]:checked {
   color: #000;
   text-align: center;
   font-size: 2.2rem;
-  line-height: 1.2em;
+  /* line-height: 1.2em; */
 }
 .large_summaryh1:hover {
   text-decoration: underline;
@@ -2587,7 +2594,8 @@ input[type="checkbox"]:checked {
 .large_summaryh1 a {
   color: #000;
   font-weight: 400;
-  font-family: 'ProximaNovaCond-Semibold', sans-serif;
+  font-family: WhyYouHeffBeMed;
+  line-height: 1.275rem;
 }
 .large_summaryDetails {
   margin: 5px 0 0;
@@ -2695,8 +2703,8 @@ input[type="checkbox"]:checked {
   position: fixed;
   color: #000;
   right: 20px;
-  top: 9px;
-  font-size: 20px;
+  top: 10px;
+  font-size: 18px;
 }
 .userLogin_Icon a {
   color: #000;

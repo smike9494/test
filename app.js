@@ -165,8 +165,8 @@ app.use(expressValidator({
 app.use(function (req, res, next) {
   // check if client sent cookie
   var cookie = req.cookies.cookieName;
-  console.log('app.js req.cookies.cookieName',req.cookies.cookieName);
-  console.log("===========================================");
+  // console.log('app.js req.cookies.cookieName',req.cookies.cookieName);
+  // console.log("===========================================");
   // var cookie = req.cookies;
   if (cookie === undefined)
   {
@@ -175,15 +175,15 @@ app.use(function (req, res, next) {
     // var randomNumber=Math.random().toString();
     // randomNumber=randomNumber.substring(2,randomNumber.length);
     res.cookie('cookieName', uid , {  expires: new Date(Date.now() + 31556952000), httpOnly: true });
-    console.log('app.js','cookie created successfully');
-    console.log('===========================================');
+    // console.log('app.js','cookie created successfully');
+    // console.log('===========================================');
   } 
   else
   {
     // yes, cookie was already present 
 
-    console.log('app.js','cookie exists', cookie);
-    console.log('===========================================');
+    // console.log('app.js','cookie exists', cookie);
+    // console.log('===========================================');
   } 
   next(); // <-- important!
 });

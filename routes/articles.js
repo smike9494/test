@@ -114,14 +114,10 @@ router.put('/article/:categorySlug/:slug', middleware.checkOwnership, function (
     var updatedContent = { imageDescription, updated, slug, image, title, category, content, author, priority };
 
     req.body.blog.body = req.sanitize(req.body.blog.body);
-
-    // Update Authors Photo
-
-    // console.log(req.body.blog);
-    // console.log(req.body.blog.body);
-    
+  
     var slug = req.params.slug
     var searchSlug = {'slug': slug};
+
     MainArticle.findOneAndUpdate(searchSlug, updatedContent, function (err, updatedArticle) {
         if (err || !updatedArticle) {
           req.flash('error','Article Update Failed!' + err)
@@ -130,19 +126,11 @@ router.put('/article/:categorySlug/:slug', middleware.checkOwnership, function (
           req.flash('success', 'Article Successfully Updated!')
           res.redirect('/article/' + req.params.categorySlug + '/' + req.params.slug);
         }
-        // If Article Has Been Modified
-        // if(updatedArticle) {
-        //   MainArticle.slug = title;
-        // }
       });
   });
 
 // SHOW PAGE FOR ARTICLES
 router.get('/article/:categorySlug/:slug', middleware.foundArticle, function (req, res) {
-  console.log(' article.js req.session',req.session);
-  console.log('===========================================')
-  console.log('req.cookies', req.cookies);
-
  if(req.user) {
    //store the users _id in viewCount
    var user = req.user._id;
@@ -153,13 +141,9 @@ router.get('/article/:categorySlug/:slug', middleware.foundArticle, function (re
 
   MainArticle.findOneAndUpdate({'slug' : slug}, { $addToSet: {'viewCount': userID}}, {  upsert: true, new: true, setDefaultsOnInsert: true}, function(err, articleWithID){
     if(err) {
-      
       console.log(err,'failed');
-      console.log('===========================================')
     } else {
-
-      console.log('articles.js req.user',userID, 'successful');
-      console.log('===========================================')
+      console.log('articles.js req.user', 'successful');
     }
   });
  } else {
@@ -167,18 +151,11 @@ router.get('/article/:categorySlug/:slug', middleware.foundArticle, function (re
   // if there is no currentUser, store browser cookie in viewCount for viewers who do not have an account
   var slug = req.params.slug;
   var viewedID = {'uid':req.cookies.cookieName}
-  console.log("req.cookies.cookieName", req.cookies.cookieName);
-  console.log('===========================================');
-
   MainArticle.findOneAndUpdate({'slug' : slug}, { $addToSet: {'viewCount': viewedID}}, {  upsert: true, new: true, setDefaultsOnInsert: true}, function(err, articleWithID){
     if(err) {
-
       console.log(err,'failed');
-      console.log('===========================================')
     } else {
-
-      console.log('articles.js notLoggedIn',viewedID,'successful');
-      console.log('===========================================')
+      console.log('articles.js notLoggedIn','successful');
     }
   });
  }
@@ -214,18 +191,18 @@ article.find({ priority: ['Breaking News'] })
     req.flash('Troubleshooting Error')
     redirect('/');
   } else {
-    console.log(breakingNews);
-    if(breakingNews && Date.now() > breakingNews.createdAt + 86400000  ) {
-      var priority = {slug: 'slug', priority: 'Breaking News'}
-      var newPriority = '';
-      article.findOneAndUpdate(priority, newPriority,function(err, BreakingNews){
-        if(err) {
-          console.log(err);
-        } else {
-          console.log('Successfully updated priority');
-        }
-      });
-    }
+    // console.log(breakingNews);
+    // if(breakingNews && Date.now() > breakingNews.createdAt + 86400000  ) {
+    //   var priority = {slug: 'slug', priority: 'Breaking News'}
+    //   var newPriority = '';
+    //   article.findOneAndUpdate(priority, newPriority,function(err, BreakingNews){
+    //     if(err) {
+    //       console.log(err);
+    //     } else {
+    //       console.log('Successfully updated priority');
+    //     }
+    //   });
+    // }
     // If article with breaking news is > 1-2 days old, findOneAndUpdate priority to none.
     // var priority = 'Breaking News'
     result.breakingNews = breakingNews;
@@ -234,7 +211,7 @@ article.find({ priority: ['Breaking News'] })
 
 article.find({ priority: ['Top Headlines'] })
 .sort({date: -1})
-.limit(10)
+.limit(7)
 .exec(function(err, topHeadlines) {
   if (err || !topHeadlines) {
     console.log(err);
@@ -346,8 +323,8 @@ article.find({ category: ['Economics'], priority: '' })
     redirect('/');
   } else {
     result.economics = economics;
-    console.log(req.cookies);
-    console.log(req.session);
+    // console.log(req.cookies);
+    // console.log(req.session);
   };
 });
 
@@ -362,8 +339,8 @@ article.find({ category: ['Lifestyle'], priority: '' })
   } else {
     result.lifestyle = lifestyle;
     res.render('landing', {result});
-    console.log(req.cookies);
-    console.log(req.session);
+    // console.log(req.cookies);
+    // console.log(req.session);
   };
 });
 

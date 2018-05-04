@@ -255,12 +255,13 @@
   background: #fff;
 }
 .logo-title_MobileNav h2 {
-  font-size: 1.1rem;
+  font-size: 1rem;
   /* font-weight: 700;  */
   padding: 0;
   border: none;
   color: #000;
   text-align: center;
+  /* font-family: WhyYouHeffBeMed; */
 }
 .title-container {
   transition: 0.1s ease-in;
@@ -275,7 +276,7 @@
 .img-container .title-container a {
   /* font-size: 14.5px; */
   font-size: 18px;
-  letter-spacing: -0.7px;
+  /* letter-spacing: -0.7px; */
 }
 .view-count {
   position: relative;
@@ -302,7 +303,7 @@
 .main-story .title a h2 {
   font-size: 2.3rem;
   line-height: 30px;
-  font-family: 'Proxima Nova';
+  /* font-family: 'Proxima Nova'; */
   /* font-weight: 700; */
   padding: 5px 0;
 }
@@ -391,7 +392,7 @@
 }
 .page-content p {
   font-size: 18px;
-  line-height: 1.8em;
+  line-height: 1.6em;
   padding: 0 5px;
 }
 /* .top-segment h2 {
