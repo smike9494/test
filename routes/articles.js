@@ -130,7 +130,7 @@ router.put('/article/:categorySlug/:slug', middleware.checkOwnership, function (
   });
 
 // SHOW PAGE FOR ARTICLES
-router.get('/article/:categorySlug/:slug', middleware.foundArticle, function (req, res) {
+router.get('/article/:dateSlug/:categorySlug/:slug', middleware.foundArticle, function (req, res) {
  if(req.user) {
    //store the users _id in viewCount
    var user = req.user._id;

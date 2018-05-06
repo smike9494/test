@@ -3,7 +3,7 @@ var titlize               = require('mongoose-title-case');
 var passportLocalMongoose = require('passport-local-mongoose');
 var validate              = require('mongoose-validator');
 var bcrypt                = require('bcryptjs');
-
+var uniqid                = require('uniqid');
 
 var nameValidator = [
     validate({
@@ -108,6 +108,7 @@ UserSchema.plugin(passportLocalMongoose);
 UserSchema.pre('save', function(next){
     this.slugName = slugify(this.name );
     // this.categorySlug = slugify(this.category);
+    this.userRef = uniqid();
     next();
 });
   

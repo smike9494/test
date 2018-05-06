@@ -49,10 +49,10 @@
   <div class="grid">
   <% result.breakingNews.forEach(function(mainArticles){ %>
       <div class="main-story">
-        <a href="/article/<%= mainArticles.categorySlug %>/<%= mainArticles.slug %>"><img src="<%= mainArticles.image %>"></a>
+        <a href="/article/<%= mainArticles.dateSlug %>/<%= mainArticles.categorySlug %>/<%= mainArticles.slug %>"><img src="<%= mainArticles.image %>"></a>
           <div class="title">
               <span class="breaking breaking-news"> BREAKING NEWS</span>
-              <a href="/article/<%= mainArticles.categorySlug %>/<%= mainArticles.slug %>"><h2><%= mainArticles.title %></h2></a>
+              <a href="/article/<%= mainArticles.dateSlug %>/<%= mainArticles.categorySlug %>/<%= mainArticles.slug %>"><h2><%= mainArticles.title %></h2></a>
             <%  if (mainArticles) { %>
               <span class="author-icon"></i><%= mainArticles.author.name %></span>
             <% } %>
@@ -97,10 +97,10 @@
                   <%  result.usNews.forEach(function(mainArticles){ %>
                   <li>
                     <div class="img-container">
-                        <a class=article-link href="/article/<%= mainArticles.categorySlug %>/<%= mainArticles.slug %>"><img src="<%= mainArticles.image %>" alt=""></a>
+                        <a class=article-link href="/article/<%= mainArticles.dateSlug %>/<%= mainArticles.categorySlug %>/<%= mainArticles.slug %>"><img src="<%= mainArticles.image %>" alt=""></a>
                         <div class="title-container">
                           <span class="sub-link">
-                            <a href="/article/<%= mainArticles.categorySlug %>/<%= mainArticles.slug %>"><%=mainArticles.title %></a>
+                            <a href="/article/<%= mainArticles.dateSlug %>/<%= mainArticles.categorySlug %>/<%= mainArticles.slug %>"><%=mainArticles.title %></a>
                             <br>
                               <span><img class="time-stamp" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMTIgMmM1LjUxNCAwIDEwIDQuNDg2IDEwIDEwcy00LjQ4NiAxMC0xMCAxMC0xMC00LjQ4Ni0xMC0xMCA0LjQ4Ni0xMCAxMC0xMHptMC0yYy02LjYyNyAwLTEyIDUuMzczLTEyIDEyczUuMzczIDEyIDEyIDEyIDEyLTUuMzczIDEyLTEyLTUuMzczLTEyLTEyLTEyem01Ljg0OCAxMi40NTljLjIwMi4wMzguMjAyLjMzMy4wMDEuMzcyLTEuOTA3LjM2MS02LjA0NSAxLjExMS02LjU0NyAxLjExMS0uNzE5IDAtMS4zMDEtLjU4Mi0xLjMwMS0xLjMwMSAwLS41MTIuNzctNS40NDcgMS4xMjUtNy40NDUuMDM0LS4xOTIuMzEyLS4xODEuMzQzLjAxNGwuOTg1IDYuMjM4IDUuMzk0IDEuMDExeiIvPjwvc3ZnPg==">
                               <%= moment(mainArticles.date).fromNow(true) %> ago </span> 
