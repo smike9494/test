@@ -277,6 +277,7 @@
   /* font-size: 14.5px; */
   font-size: 18px;
   /* letter-spacing: -0.7px; */
+  width: 210px;
 }
 .view-count {
   position: relative;
@@ -370,7 +371,7 @@
   font-family: 'PT Sans Narrow' , sans-serif !important;
 }
 .img-container img {
-  width: 100px;
+  width: 140px;
   height: auto;
 }
 .section-one, .section-two {
@@ -422,6 +423,7 @@
   font-size: 14px;
   /* font-weight: 700; */
   padding: 10px 15px;
+  font-family: WhyYouHeffBeMed;
 }
 .ssk-group {
   padding: 10px 0 0 15px !important;
@@ -979,7 +981,7 @@ transition:background-color 0.5s ease;
     font-size: 14px;
     /* text-align: center; */
     /* margin: 10px auto; */
-    transition:background-color 0.5s ease;
+    transition: width 0.3s ease-in;
     }
     .search-box input[type='text']:focus {
       width: 245px;
@@ -1067,7 +1069,7 @@ only screen and (            min-resolution: 2dppx) and (min-device-width: 1025p
     border-right: 1.15em solid transparent;
   }
   .ul li {
-    padding: 10px 5px;
+    padding: 10px ;
     
   }
 

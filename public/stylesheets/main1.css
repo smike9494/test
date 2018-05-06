@@ -6,7 +6,7 @@
 }
 @font-face{
   font-family: nuckingfuts;
-  src: url('../stylesheets/font/fonts/Proxima Nova Semibold.otf')
+  src: url('../stylesheets/font/fonts/Proxima Nova Regular.otf')
 }
 
 
@@ -144,6 +144,7 @@
   right: 0;
   -webkit-transition: 0.3s;
   transition: 0.3s;
+  font-family: WhyYouHeffBeMed;
 }
 
 /****************************** TIME LOGO SEARCH STYLES *****************************/
@@ -167,6 +168,7 @@
   width: 230px;
   background-color: transparent;
   font-size: 14px;
+  font-family: WhyYouHeffBeMed;
 }
 
 .search-box input::-webkit-input-placeholder {
@@ -205,6 +207,9 @@
 .time {
   color: #fff;
   font-size: 15px;
+}
+.time-time {
+  font-family: WhyYouHeffBeMed;
 }
 /*----------------DROPDOWN----------------------------------------------------*/
 
@@ -476,6 +481,7 @@ span {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  /* justify-content: center; */
 }
 
 .title-container_MobileNav {
@@ -534,7 +540,7 @@ hr {
   font-size: 14px;
   z-index: 0;
   font-weight: 400;
-  font-family: WhyYouHeffBeMed;
+  /* font-family: WhyYouHeffBeMed; */
 }
 .showpage-content {
   line-height: 1.5em;
