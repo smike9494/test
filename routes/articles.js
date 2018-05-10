@@ -108,7 +108,9 @@ router.put('/article/:categorySlug/:slug', middleware.checkOwnership, function (
         id: req.user._id,
         username: req.user.username,
         name: req.user.name,
-        photo: req.user.profilePhoto
+        photo: req.user.profilePhoto,
+        slugName: req.user.slugName,
+        userRef: req.user.userRef
       };
     var categorySlug   = req.body.blog.category; 
     var updatedContent = { imageDescription, updated, slug, image, title, category, content, author, priority };

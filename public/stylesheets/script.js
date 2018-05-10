@@ -1,26 +1,36 @@
 $(document).ready(function () {
 
-      $(window).scroll(function () {
+      // $(window).scroll(function () {
+      //   if ($(this).scrollTop() > 150 && $(window).width() > 480) {
+      //     $('.navbar').addClass('sticky');
+      //     $(' #menuToggle').css('display', 'block');
+      //     $(' #menuToggle').css('top', '15px');
+      //     $('.navbar-nav').css('display','none');
+      //     $('#sticky-logo').css('display','grid');
+      //     $('#sticky-social').css('display','flex');
+      //     $('.ul-displayFlex').css('display', 'none !important');
+      //     $('.absolute-right90px').css('top', '');
+      //   } else {
+      //     $('.navbar').removeClass('sticky');
+      //     $('#menuToggle').css('display', 'none');
+      //     $('#sticky-social').css('display','none');
+      //     $('.navbar-nav').css('display','flex');
+      //     $('#sticky-logo').css('display','none');
+      //     $('.content').removeClass('transformMenu');
+      //     $('.menuToggle').removeClass('active');
+      //   }
+      // });
+
+
+       $(window).scroll(function () {
         if ($(this).scrollTop() > 150 && $(window).width() > 480) {
-          $('.navbar').addClass('sticky');
-          $(' #menuToggle').css('display', 'block');
-          $(' #menuToggle').css('top', '15px');
-          $('.navbar-nav').css('display','none');
-          $('#sticky-logo').css('display','grid');
-          $('#sticky-social').css('display','flex');
-          $('.ul-displayFlex').css('display', 'none !important');
-          $('.absolute-right90px').css('top', '');
+          $('.translateMenuDownY').css('transform', 'translateY(0)');
         } else {
-          $('.navbar').removeClass('sticky');
-          $('#menuToggle').css('display', 'none');
-          $('#sticky-social').css('display','none');
-          $('.navbar-nav').css('display','flex');
-          $('#sticky-logo').css('display','none');
+          $('.translateMenuDownY').css('transform', 'translateY(-100px)');
           $('.content').removeClass('transformMenu');
           $('.menuToggle').removeClass('active');
         }
       });
-
 
     
       $(window).scroll(function () {
