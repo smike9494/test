@@ -194,19 +194,19 @@ article.find({ priority: ['Breaking News'] })
     redirect('/');
   } else {
     // console.log(breakingNews);
-    // if(breakingNews && Date.now() > breakingNews.createdAt + 86400000  ) {
-    //   var priority = {slug: 'slug', priority: 'Breaking News'}
-    //   var newPriority = '';
-    //   article.findOneAndUpdate(priority, newPriority,function(err, BreakingNews){
-    //     if(err) {
-    //       console.log(err);
-    //     } else {
-    //       console.log('Successfully updated priority');
-    //     }
-    //   });
-    // }
+    if(breakingNews && breakingNews.createdAt >= breakingNews.createdAt + (2 * 24 * 60 * 60 * 1000)) {
+      var priority = {slug: 'slug', priority: 'Breaking News'}
+      var newPriority = { priority: ''};
+      article.findOneAndUpdate(priority, newPriority,function(err, BreakingNews){
+        if(err) {
+          console.log(err);
+        } else {
+          console.log('Successfully updated priority');
+        }
+      });
+    }
     // If article with breaking news is > 1-2 days old, findOneAndUpdate priority to none.
-    // var priority = 'Breaking News'
+    var priority = 'Breaking News'
     result.breakingNews = breakingNews;
   };
 });

@@ -104,11 +104,25 @@ var randomNumber=Math.random().toString();
 var uid = randomNumber.substring(2,randomNumber.length);
 
 mainArticleSchema.pre('save', function(next){
+  var date = Date.now();
   this.slug = slugify(this.title ) + '_' + uid;
   this.categorySlug = slugify(this.category);
-  this.dateSlug = moment(Date.now());
+  this.dateSlug = moment(date).format('YYYYMMDD');
   next();
 });
+
+//Date Function 
+// function formatDate(date) {
+//   var d = new Date(date),
+//       month = '' + (d.getMonth() + 1),
+//       day = '' + d.getDate(),
+//       year = d.getFullYear();
+
+//   if (month.length < 2) month = '0' + month;
+//   if (day.length < 2) day = '0' + day;
+
+//   return [year, month, day].join('-');
+// }
 
 // function to slugify a name
  function slugify(text) {

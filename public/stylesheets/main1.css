@@ -8,6 +8,11 @@
   font-family: nuckingfuts;
   src: url('../stylesheets/font/fonts/Proxima Nova Regular.otf')
 }
+@font-face{
+  font-family: Lapata;
+  src: url('../stylesheets/font/fonts/ProximaNova-Medium.otf')
+}
+
 
 
 *{
@@ -17,7 +22,7 @@
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   list-style-type: none;
-  font-family: 'Proxima Nova', sans-serif;
+  font-family: 'Lapata', sans-serif;
   font-style: normal;
 }
 .container {
@@ -573,7 +578,7 @@ hr {
 }
 .page-content p {
   margin-bottom: 10px;
-  font-family: 'Proxima Nova', sans-serif;
+  font-family: 'Lapata', sans-serif;
   font-style: normal;
   font-size: 1.15rem;
   font-weight: 400;
