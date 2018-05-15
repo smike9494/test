@@ -53,7 +53,7 @@
           <div class="title">
             <% if (mainArticles.createdAt !== mainArticles.createdAt + (2 * 24 * 60 * 60 * 1000)) { %>
               <span class="breaking breaking-news"> BREAKING NEWS</span>
-            <% } else { %>  
+            <% } else if (mainArticles.createdAt == mainArticles.createdAt + (2 * 24 * 60 * 60 * 1000)) { %>  
               
             <% } %>  
               <a href="/article/<%= mainArticles.dateSlug %>/<%= mainArticles.categorySlug %>/<%= mainArticles.slug %>"><h2><%= mainArticles.title %></h2></a>
