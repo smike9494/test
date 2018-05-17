@@ -431,6 +431,7 @@ span {
   /* font-weight: 700; */
   color:#329FCA;
   font-family: 'PT Sans Narrow', sans-serif !important;
+  grid-column: 3/4;
 }
 
 /****************************** SECTIONS *****************************/
@@ -552,6 +553,7 @@ hr {
   z-index: 0;
   font-weight: 400;
   /* font-family: WhyYouHeffBeMed; */
+  grid-column: 3/11;
 }
 .showpage-content {
   line-height: 1.5em;
@@ -566,6 +568,7 @@ hr {
   margin-bottom: 5px;
   border-bottom: 1px solid #e5e5e5; */
   font-family: WhyYouHeffBeMed;
+  grid-column: 3/11;
  
 }
 .page-content   {
@@ -575,6 +578,7 @@ hr {
   color: #000;
   padding-bottom: 20px;
   border-bottom: 1px solid #DADFE1;
+  grid-column: 3/11;
 }
 .page-content p {
   margin-bottom: 10px;
@@ -594,7 +598,7 @@ hr {
 }
 .grid-show {
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
+  /* grid-template-columns: repeat(12, 1fr); */
   grid-column-gap: 10px;
 }
 .nav {
@@ -1153,7 +1157,7 @@ border: 1px solid #fff;
 .avatar-img {
   display: -webkit-box;
   display: -ms-flexbox;
-  display: flex;
+  /* display: flex; */
   -webkit-box-pack: left;
   -ms-flex-pack: left;
   justify-content: left;
@@ -1162,6 +1166,7 @@ border: 1px solid #fff;
   align-items: center;
   text-align: center;
   padding-bottom: 12px;
+  grid-column: 3/12;
 }
 .avatar-img-profile {
   -webkit-box-pack: left;
@@ -1917,6 +1922,12 @@ a li:hover {
   background-color: rgba(0, 0, 0, 1);
   display: grid;
 }
+.page-content p img {
+  width: 100% !important; 
+  height: auto !important;
+  /* margin: 0 auto;
+  display: grid; */
+}
 #copyright {
   -webkit-box-pack: end;
   -ms-flex-pack: end;
@@ -2175,8 +2186,8 @@ a li:hover {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
-  width: 2.1rem;
-  height: 2.1rem;
+  width: 30px;
+  height: 30px;
   /* background:#2574A9; */
   text-align: center;
   /* line-height: 80px; */
@@ -2205,7 +2216,7 @@ a li:hover {
   background: #ff4500
 }
 .emailColor {
-  background: #BFBFBF;
+  background: #333333;
 }
 .editorToolBar {
   background-color: #000;
@@ -2726,4 +2737,35 @@ input[type="checkbox"]:checked {
 }
 .userLogin_Icon a {
   color: #000;
+}
+.spans_Container {
+  grid-template-columns: repeat(12, 1fr);
+  display: grid;
+}
+.spans {
+  grid-column: 3/6;
+}
+
+.h1_container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+.avatar_SocialShare_Container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+.timestamp_Container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+.content_Container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+.social_Container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+.social {
+  grid-column: 3/11;
 }
