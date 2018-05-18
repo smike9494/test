@@ -372,9 +372,9 @@
   line-height: 35px;
   /* padding-top: 40px; */
 }
-.page-content {
-  /* padding: 0 10px; */
-}
+/* .page-content {
+  padding: 0 10px;
+} */
 .author-icons-author, .author-icons-category, .show-time {
   font-size: 1.5rem;
 }
