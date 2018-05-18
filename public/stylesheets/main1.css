@@ -2278,10 +2278,12 @@ a li:hover {
   z-index: 1;
   -webkit-transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s;
   transition: all 0.3s ease-in-out 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s;
+  opacity: 0;
 }
 .content.transformMenu {
   -webkit-transform: translateY(0);
   transform: translateY(0);
+  opacity: 1;
 }
 .content ul {
   display: grid;
