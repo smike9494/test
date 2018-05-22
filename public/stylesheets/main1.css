@@ -1943,6 +1943,7 @@ a li:hover {
   position: fixed;
   display: none;
   left: 8%;
+  top: 30%;
   opacity: 0; 
   visibility: hidden;
   overflow: hidden;
@@ -1952,6 +1953,7 @@ a li:hover {
   padding-bottom: 10px;
   border-bottom: 4px solid #000;
 }
+
 .absolute-right90px {
   position: fixed;
   right: 8%;
@@ -2047,14 +2049,15 @@ a li:hover {
 .absolute-left90px a:hover:before{
   top: 0;
 }
-.absolute-left90px li:nth-child(1) a:before {
+.absolute-left90px li:nth-child(1) a {
   background: #3b5999;
 }
-.absolute-left90px li:nth-child(2) a:before {
-  background: #4099FF;
+.absolute-left90px li:nth-child(2) a {
+  background: #1da1f2;
 }
-.absolute-left90px li:nth-child(3) a:before {
-  background: #db4437;
+.absolute-left90px li:nth-child(3) a {
+  /* background: #db4437; */
+  background: #BFBFBF;
 }
 .absolute-left90px li:nth-child(4) a:before {
   background: #00a0dc
@@ -2114,7 +2117,7 @@ a li:hover {
   background:#1d89ff;
   text-align: center;
   /* line-height: 80px; */
-  font-size: 20px;
+  font-size: 14px;
   margin: 0px 3px;
   border-radius: 50%;
   position: relative;
