@@ -257,7 +257,7 @@ article.find({ category: ['Business'], priority: '' })
   if (err) {
     console.log(err || !business);
     req.flash('Troubleshooting Error')
-    redirect('/');
+    res.redirect('/');
   } else {
     result.business = business;
   };
@@ -309,7 +309,7 @@ article.find({ category: ['Sports'], priority: '' })
   if (err || !sports) {
     console.log(err);
     req.flash('Troubleshooting Error')
-    redirect('/');
+    res.redirect('/');
   } else {
     result.sports = sports;
   };

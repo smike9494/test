@@ -32,6 +32,11 @@ $(document).ready(function () {
         }
       });
 
+      $(window).scroll(function () {
+        if ($(this).scrollTop() > 350 && $(window).width() > 480) {
+          $('.absolute_SocialShare').removeClass('translate_SocialShare');
+        }
+      });
     
       $(window).scroll(function () {
         if ($(this).scrollTop() > $('.view-count').offset().top - 30 && $(window).width() > 480) {
@@ -41,6 +46,7 @@ $(document).ready(function () {
         } else {
           $('.absolute-left90px').css('visibility', 'hidden');
           $('.absolute-left90px').css('opacity', '0');
+          $('.absolute_SocialShare').removeClass('translate_SocialShare');
         }
       });
 
@@ -68,7 +74,7 @@ $(document).ready(function () {
       }
      
       if ($(window).width() > 1300 ) {
-        $('.absolute-left90px').css('left', '30%');
+        $('.absolute-left90px').css('left', '25%');
         $('.absolute-right90px').css('right', '30%');
       } 
       if ($(window).width() > 1300 ) {
@@ -238,3 +244,17 @@ spanMobileMenuBurger.onclick = function() {
 //     }
 // }
 
+var shareIcon = document.getElementById('share_List');
+var pageContent = document.getElementsByClassName('page-content');
+
+// var hiddenSocial = document.getElementById('absolute_SocialShare');
+
+shareIcon.onclick = function() {
+  $('.absolute_SocialShare').toggleClass('translate_SocialShare');
+}
+
+window.onclick = function(event) {
+  if (event.target == pageContent ) {
+    $('.absolute_SocialShare').removeClass('translate_SocialShare');
+  }
+}
